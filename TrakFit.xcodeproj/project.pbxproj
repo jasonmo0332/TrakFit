@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,14 @@
 		0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */; };
 		0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */; };
 		0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */; };
+		0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */; };
+		0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D890871240F042D004A5E0A /* GraphViewController.swift */; };
+		0D89089B2415BA32004A5E0A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D89089A2415BA32004A5E0A /* Home.storyboard */; };
+		0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */; };
+		0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */; };
+		0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */; };
+		0DBFDB9D23FA17AE00B51A36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */; };
+		D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,16 @@
 		0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F168C23EAD8A400F3F5D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2F168E23EAD8A400F3F5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D890871240F042D004A5E0A /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		0D89089A2415BA32004A5E0A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		364369495FB7CB46B216184D /* Pods-TrakFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.release.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.release.xcconfig"; sourceTree = "<group>"; };
+		5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrakFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD4C59A748FD5E9E0C34406F /* Pods-TrakFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.debug.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03394F723B402A40DB59C541 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0B148F5814D5B9B7575D0847 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD4C59A748FD5E9E0C34406F /* Pods-TrakFit.debug.xcconfig */,
+				364369495FB7CB46B216184D /* Pods-TrakFit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		0D2F167123EAD8A200F3F5D7 = {
 			isa = PBXGroup;
 			children = (
 				0D2F167C23EAD8A200F3F5D7 /* TrakFit */,
 				0D2F167B23EAD8A200F3F5D7 /* Products */,
+				0B148F5814D5B9B7575D0847 /* Pods */,
+				03394F723B402A40DB59C541 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +96,55 @@
 		0D2F167C23EAD8A200F3F5D7 /* TrakFit */ = {
 			isa = PBXGroup;
 			children = (
+				0D89089D2415CC54004A5E0A /* Controllers */,
+				0D89089C2415CC36004A5E0A /* Storyboard */,
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
 				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
 				0D2F168123EAD8A200F3F5D7 /* ViewController.swift */,
-				0D2F168323EAD8A200F3F5D7 /* Main.storyboard */,
 				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
-				0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */,
 				0D2F168E23EAD8A400F3F5D7 /* Info.plist */,
 				0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */,
+				0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */,
 			);
 			path = TrakFit;
+			sourceTree = "<group>";
+		};
+		0D89089C2415CC36004A5E0A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				0D2F168323EAD8A200F3F5D7 /* Main.storyboard */,
+				0D89089A2415BA32004A5E0A /* Home.storyboard */,
+				0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		0D89089D2415CC54004A5E0A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D89089F2415CC66004A5E0A /* Home */,
+				0D89089E2415CC62004A5E0A /* Main */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0D89089E2415CC62004A5E0A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */,
+				0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		0D89089F2415CC66004A5E0A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */,
+				0D890871240F042D004A5E0A /* GraphViewController.swift */,
+				0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D2F169123EAD8A400F3F5D7 /* Build configuration list for PBXNativeTarget "TrakFit" */;
 			buildPhases = (
+				0DF8FBBE7874A1C0F0685089 /* [CP] Check Pods Manifest.lock */,
 				0D2F167623EAD8A200F3F5D7 /* Sources */,
 				0D2F167723EAD8A200F3F5D7 /* Frameworks */,
 				0D2F167823EAD8A200F3F5D7 /* Resources */,
+				4DA9BFBB867A842E2BB9BB0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */,
+				0D89089B2415BA32004A5E0A /* Home.storyboard in Resources */,
+				0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */,
 				0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */,
 				0D2F168523EAD8A200F3F5D7 /* Main.storyboard in Resources */,
 			);
@@ -136,14 +217,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DF8FBBE7874A1C0F0685089 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrakFit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DA9BFBB867A842E2BB9BB0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrakFit/Pods-TrakFit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrakFit/Pods-TrakFit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrakFit/Pods-TrakFit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D2F167623EAD8A200F3F5D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
+				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
+				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
 				0D2F168223EAD8A200F3F5D7 /* ViewController.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
+				0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */,
+				0DBFDB9D23FA17AE00B51A36 /* ProfileViewController.swift in Sources */,
 				0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +414,7 @@
 		};
 		0D2F169223EAD8A400F3F5D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4C59A748FD5E9E0C34406F /* Pods-TrakFit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +433,7 @@
 		};
 		0D2F169323EAD8A400F3F5D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 364369495FB7CB46B216184D /* Pods-TrakFit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
