@@ -17,6 +17,8 @@ class CreateAccountViewController: UIViewController {
     
     @IBAction func createAccountButton(_ sender: UIButton) {
         Auth.auth().createUser(withEmail: emailField.text ?? "", password: passwordField.text ?? "") { authResult, error in }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     

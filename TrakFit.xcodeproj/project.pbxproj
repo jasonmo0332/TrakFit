@@ -17,10 +17,12 @@
 		0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */; };
 		0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D890871240F042D004A5E0A /* GraphViewController.swift */; };
 		0D89089B2415BA32004A5E0A /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D89089A2415BA32004A5E0A /* Home.storyboard */; };
+		0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8908A2241630A7004A5E0A /* WeightEntry.swift */; };
+		0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8908A4241826E2004A5E0A /* ProfileViewController.swift */; };
+		0D8908A724182BB3004A5E0A /* UserProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8908A624182BB3004A5E0A /* UserProperties.swift */; };
 		0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */; };
 		0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */; };
 		0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */; };
-		0DBFDB9D23FA17AE00B51A36 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */; };
 		D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +39,12 @@
 		0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D890871240F042D004A5E0A /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		0D89089A2415BA32004A5E0A /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0D8908A2241630A7004A5E0A /* WeightEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntry.swift; sourceTree = "<group>"; };
+		0D8908A4241826E2004A5E0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0D8908A624182BB3004A5E0A /* UserProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProperties.swift; sourceTree = "<group>"; };
 		0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
-		0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		364369495FB7CB46B216184D /* Pods-TrakFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.release.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.release.xcconfig"; sourceTree = "<group>"; };
 		5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrakFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4C59A748FD5E9E0C34406F /* Pods-TrakFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.debug.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
 				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
 				0D2F168123EAD8A200F3F5D7 /* ViewController.swift */,
+				0D8908A2241630A7004A5E0A /* WeightEntry.swift */,
+				0D8908A624182BB3004A5E0A /* UserProperties.swift */,
 				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
 				0D2F168E23EAD8A400F3F5D7 /* Info.plist */,
 				0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */,
@@ -142,7 +148,7 @@
 			children = (
 				0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */,
 				0D890871240F042D004A5E0A /* GraphViewController.swift */,
-				0DBFDB9C23FA17AD00B51A36 /* ProfileViewController.swift */,
+				0D8908A4241826E2004A5E0A /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -266,13 +272,15 @@
 			files = (
 				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
 				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
+				0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */,
+				0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */,
 				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
 				0D2F168223EAD8A200F3F5D7 /* ViewController.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
 				0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */,
-				0DBFDB9D23FA17AE00B51A36 /* ProfileViewController.swift in Sources */,
 				0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */,
+				0D8908A724182BB3004A5E0A /* UserProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

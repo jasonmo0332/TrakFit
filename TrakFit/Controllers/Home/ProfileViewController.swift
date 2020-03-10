@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  TrakFit
 //
-//  Created by Jason Mo on 2/16/20.
+//  Created by Jason Mo on 3/10/20.
 //  Copyright © 2020 Jason Mo. All rights reserved.
 //
 
@@ -10,13 +10,17 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileNameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func logoutButton(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -18,6 +18,13 @@ class LoginViewController: UIViewController {
         guard let strongSelf = self else { return }
             
         }
+        /*let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! UITabBarController
+        let navigationController = UINavigationController(rootViewController: newViewController)
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        print("\(newViewController) hello")
+        appdelegate.window!.rootViewController = navigationController*/
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

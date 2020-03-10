@@ -69,19 +69,51 @@
                     <view key="view" contentMode="scaleToFill" id="iok-Hp-peR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtK-0q-1gw">
+                                <rect key="frame" x="20" y="73" width="100" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jason" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyB-W7-FxK">
+                                <rect key="frame" x="201" y="73" width="177" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-7k-fCM">
+                                <rect key="frame" x="20" y="709" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="TaI-i4-HBq" eventType="touchUpInside" id="PKV-AP-dGc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Yk-R7-rhn" firstAttribute="bottom" secondItem="EOI-7k-fCM" secondAttribute="bottom" constant="68" id="NSZ-uf-iTv"/>
+                            <constraint firstItem="2Yk-R7-rhn" firstAttribute="trailing" secondItem="EOI-7k-fCM" secondAttribute="trailing" constant="20" id="eia-Ph-1bD"/>
+                            <constraint firstItem="EOI-7k-fCM" firstAttribute="leading" secondItem="2Yk-R7-rhn" secondAttribute="leading" constant="20" id="g5l-p4-SjD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2Yk-R7-rhn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="GYa-Oz-PqG"/>
+                    <connections>
+                        <outlet property="profileNameLabel" destination="GyB-W7-FxK" id="Af8-7x-1Id"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjI-Wh-St3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="532" y="74"/>
+            <point key="canvasLocation" x="531.8840579710145" y="73.660714285714278"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--HomeViewController-->
         <scene sceneID="blP-5r-8wY">
             <objects>
-                <tabBarController id="4Ul-iv-naf" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeViewController" title="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ul-iv-naf" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YRd-23-YLh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -109,34 +141,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96930998560000003" green="0.69394654079999996" blue="0.96915333589999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sLL-3O-fC7">
-                                <rect key="frame" x="20" y="122" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFe-1e-cVZ">
-                                <rect key="frame" x="164" y="126" width="88" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Input Submit"/>
-                                <connections>
-                                    <action selector="submitButton:" destination="PAc-YW-WMB" eventType="touchUpInside" id="3Mb-Ck-fBt"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdO-p4-pK8">
-                                <rect key="frame" x="20" y="65" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urt-d0-hG4">
-                                <rect key="frame" x="166" y="69" width="84" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Goal Submit"/>
-                                <connections>
-                                    <action selector="goalSubmitButton:" destination="PAc-YW-WMB" eventType="touchUpInside" id="CYB-96-Blq"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euX-8i-bEj">
                                 <rect key="frame" x="296" y="126" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -145,20 +149,26 @@
                                     <segue destination="qVl-q6-PVN" kind="show" id="Ogp-So-HQp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIC-xh-MYp">
+                                <rect key="frame" x="174" y="126" width="51" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateButton:" destination="PAc-YW-WMB" eventType="touchUpInside" id="tpt-ij-Tzk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="vfK-iN-pgd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Weight" id="gnC-f4-bGr"/>
                     <connections>
-                        <outlet property="goalValue" destination="MdO-p4-pK8" id="bMf-oC-uaN"/>
                         <outlet property="mainChart" destination="A5M-QO-ua0" id="d4W-wK-oSY"/>
-                        <outlet property="weightValue" destination="sLL-3O-fC7" id="vvv-Oy-Fgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjo-fA-Xr1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-375" y="899"/>
+            <point key="canvasLocation" x="-375.36231884057975" y="898.66071428571422"/>
         </scene>
     </scenes>
 </document>

@@ -13,65 +13,71 @@ import Firebase
 class GraphViewController: UIViewController {
 
     
-    @IBOutlet weak var weightValue: UITextField!
     @IBOutlet weak var mainChart: LineChartView!
-    @IBOutlet weak var goalValue: UITextField!
     var inputWeight : [Double] = []
-    var inputGoals : [Double] = []
-    let ref = Database.database().reference(withPath: "weight")
+    let user = Auth.auth().currentUser
+    let ref = Database.database().reference()
     
     
-
+//    // convert Int to Double
+//    let timeInterval = Double(myInt)
+//
+//    // create NSDate from Double (NSTimeInterval)
+//    let myNSDate = Date(timeIntervalSince1970: timeInterval)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        readFromDatabase()
         // Do any additional setup after loading the view.
     }
-    @IBAction func submitButton(_ sender: Any) {
-        let input = Double(weightValue.text!)
-        inputWeight.append(input!)
-        updateGraph()
-        let weightItem = self.ref.child("weight")
-        weightItem.setValue(input)
+    
+    func convertDoubleToDate(doubleDate: Double) -> Date{
+        // convert Int to Double
+        let timeInterval = Double(doubleDate)
+
+        // create NSDate from Double (NSTimeInterval)
+        let myNSDate = Date(timeIntervalSince1970: timeInterval)
+        
+        return myNSDate
     }
     
-    @IBAction func goalSubmitButton(_ sender: Any) {
-        let input = Double(goalValue.text!)
-        inputWeight.append(input!)
-        updateGraph()
-    }
-    func setDate() {
+    @IBAction func updateButton(_ sender: Any) {
         
+        
+    }
+    
+    func readFromDatabase() {
+        print(user!.uid)
+        ref.child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+          // Get user value
+            let value = snapshot.value as? NSDictionary
+            self.inputWeight = value!["weight"] as! [Double]
+            self.updateGraph()
+          // ...
+          }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     func updateGraph() {
         var lineChartEntryWeight = [ChartDataEntry]()
-        var lineChartEntryGoal = [ChartDataEntry]()
+
         
         //user input
         for i in 0..<inputWeight.count {
+            print(i)
             let value = ChartDataEntry(x: Double(i), y: inputWeight[i])
             lineChartEntryWeight.append(value)
         }
-        //goal weights
-        for i in 0..<inputGoals.count {
-            let value = ChartDataEntry(x: Double(i), y: inputGoals[i])
-            lineChartEntryGoal.append(value)
-        }
         
         let weightLine = LineChartDataSet(entries: lineChartEntryWeight, label: "Weight")
-        let goalLine = LineChartDataSet(entries: lineChartEntryGoal, label: "Goal Weight")
         weightLine.colors = [NSUIColor.blue]
-        goalLine.colors = [NSUIColor.green]
         
-        let data = LineChartData(dataSets: [weightLine, goalLine])
+        let data = LineChartData(dataSets: [weightLine])
         
         
         mainChart.data = data
         mainChart.chartDescription?.text = "My Weight"
-        var legend : Legend = mainChart.legend
-        legend.textColor = NSUIColor.blue
     }
 
     /*
