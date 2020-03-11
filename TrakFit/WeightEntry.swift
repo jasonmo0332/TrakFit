@@ -11,9 +11,11 @@ import Foundation
 class WeightEntry {
     var date: Date
     var weight: Double
-    init(date: Date, weight: Double) {
+    var dateNumberValue: Double
+    init(date: Date, weight: Double, dateNumberValue: Double) {
         self.date = date
         self.weight = weight
+        self.dateNumberValue = dateNumberValue
     }
     func calculateDate() {
         

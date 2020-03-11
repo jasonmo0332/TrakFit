@@ -15,13 +15,39 @@ class CreateAccountViewController: UIViewController {
 
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var confirmPasswordField: UITextField!
     @IBAction func createAccountButton(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: emailField.text ?? "", password: passwordField.text ?? "") { authResult, error in }
+//        if passwordField.text != confirmPasswordField.text && passwordField.text != "" passwordField.text {
+//            createAlert(title: "Password Error", message: "The passwords must match")
+//            return
+//        }
+        guard let passwordFieldText = passwordField.text,
+            passwordFieldText == confirmPasswordField.text,
+            passwordFieldText.count > 6 else {
+            createAlert(title: "Password Error", message: "The passwords must match")
+            return
+        }
+        guard let emailFieldText = emailField.text else {
+            createAlert(title: "Email Error", message: "The passwords must match")
+            return
+        }
+        Auth.auth().createUser(withEmail: emailFieldText, password: passwordField.text ?? "") { authResult, error in
+            guard let user = authResult?.user, error == nil else {
+                self.createAlert(title: "Username Error", message: "\(error!.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
         
-        dismiss(animated: true, completion: nil)
+        
     }
     
-    
+    func createAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

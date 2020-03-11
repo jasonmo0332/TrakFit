@@ -8,11 +8,12 @@
 
 import UIKit
 import Firebase
+import RealmSwift
 
 class AddWeightViewController: UIViewController {
 
     let ref = Database.database().reference()
-    let user = Auth.auth().currentUser
+    let userId = Auth.auth().currentUser?.uid
     var weights : [Double] = []
     var dates : [Double] = []
     override func viewDidLoad() {
@@ -31,14 +32,14 @@ class AddWeightViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         
         let input = Double(weightField.text!)!
-        var userProp = UserProperties(userId: user?.uid ?? "", userEmail: user?.email! ?? "", username: user?.email! ?? "")
-        var entry = WeightEntry(date: datePickerField.date, weight: input)
+        let dateDouble = convertDateToDouble(date: datePickerField.date)
+        var entry = WeightEntry(date: datePickerField.date, weight: input, dateNumberValue: dateDouble)
         //convert the date value to Double literal
-        let dateInteger = convertDateToDouble(date: datePickerField.date)
+        
         
         weights.append(input)
-        dates.append(dateInteger)
-        self.ref.child("users").child(userProp.userId).setValue(["date": dates, "weight" : weights])
+        dates.append(dateDouble)
+        self.ref.child("users").child(userId!).setValue(["date": dates, "weight" : weights])
         
         //need to read the NSArray for previous values then Append new values
         
@@ -53,9 +54,6 @@ class AddWeightViewController: UIViewController {
         return dateInteger
     }
     
-    func saveCoreData() {
-        
-    }
     
     /*
     // MARK: - Navigation

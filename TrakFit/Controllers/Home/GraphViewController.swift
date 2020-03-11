@@ -14,7 +14,7 @@ class GraphViewController: UIViewController {
 
     
     @IBOutlet weak var mainChart: LineChartView!
-    var inputWeight : [Double] = []
+    var inputWeights : [Double] = []
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
     
@@ -42,7 +42,7 @@ class GraphViewController: UIViewController {
     }
     
     @IBAction func updateButton(_ sender: Any) {
-        
+        readFromDatabase()
         
     }
     
@@ -50,8 +50,10 @@ class GraphViewController: UIViewController {
         print(user!.uid)
         ref.child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
-            let value = snapshot.value as? NSDictionary
-            self.inputWeight = value!["weight"] as! [Double]
+            let valueDic = snapshot.value as? NSDictionary
+            if let weightVals = valueDic?["weight"], let weightValsAsDoubles = weightVals as? [Double] {
+                self.inputWeights = weightValsAsDoubles
+            }
             self.updateGraph()
           // ...
           }) { (error) in
@@ -64,9 +66,9 @@ class GraphViewController: UIViewController {
 
         
         //user input
-        for i in 0..<inputWeight.count {
+        for i in 0..<inputWeights.count {
             print(i)
-            let value = ChartDataEntry(x: Double(i), y: inputWeight[i])
+            let value = ChartDataEntry(x: Double(i), y: inputWeights[i])
             lineChartEntryWeight.append(value)
         }
         

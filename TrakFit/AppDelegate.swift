@@ -13,15 +13,23 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var loginViewController: LoginViewController?
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.makeKeyAndVisible()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = RootViewController()
+        
+        window?.makeKeyAndVisible()
+
+//        rootViewController.showLoginScreen()
         return true
-        
-        
     }
 
     // MARK: UISceneSession Lifecycle
@@ -85,3 +93,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Onboarding
+
+/*extension AppDelegate: LoginViewControllerDelegate {
+
+    func showOnboarding() {
+        if let window = window,
+            let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? LoginViewController {
+            loginViewController = loginVC
+            if let loginViewController = loginViewController {
+                loginViewController.delegate = self
+                window.rootViewController = loginViewController
+            }
+        }
+    }
+
+    func hideOnboarding() {
+        if let window = window, let mainViewController = UIStoryboard(name: "Home", bundle: nil).instantiateInitialViewController() {
+            mainViewController.view.frame = window.bounds
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = mainViewController
+            }, completion: nil)
+        }
+    }
+}*/
+extension AppDelegate {
+   static var shared: AppDelegate {
+      return UIApplication.shared.delegate as! AppDelegate
+   }
+var rootViewController: RootViewController {
+      return window!.rootViewController as! RootViewController
+   }
+}

@@ -12,12 +12,12 @@ class UserProperties {
     let userId : String
     let userEmail : String
     let username: String
-//    var weightEntries: [WeightEntry]
-    init(userId: String, userEmail: String, username: String) {
+    var weightEntries: [WeightEntry]
+    init(userId: String, userEmail: String, username: String, weightEntries: [WeightEntry]) {
         self.userId = userId
         self.userEmail = userEmail
         self.username = username
-//        self.weightEntries = weightEntries
+        self.weightEntries = weightEntries
     }
     func showUserDetails() {
         print(self.userId)
