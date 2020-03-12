@@ -14,14 +14,15 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 class LoginViewController: UIViewController {
-
-    weak var delegate: LoginViewControllerDelegate?
     
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    let loginView = LoginView()
     
-    @IBAction func signInButton(_ sender: Any) {
-        Auth.auth().signIn(withEmail: usernameField.text ?? "", password: passwordField.text!) { [weak self] authResult, error in
+    override func loadView() {
+        view = loginView
+    }
+    
+    func signInButtonDidPressed(_ sender: Any) {
+        Auth.auth().signIn(withEmail: loginView.usernameField.text ?? "", password: loginView.passwordField.text!) { [weak self] authResult, error in
             
         guard let strongSelf = self else { return }
             if let error = error {
@@ -46,6 +47,8 @@ class LoginViewController: UIViewController {
         //usernameField.delegate = self
         // Do any additional setup after loading the view.
     }
+    
+
   
     func createAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
@@ -69,10 +72,10 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == usernameField {
-            
-        }
-    }
-}
+//extension LoginViewController: UITextFieldDelegate {
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if textField == usernameField {
+//
+//        }
+//    }
+//}

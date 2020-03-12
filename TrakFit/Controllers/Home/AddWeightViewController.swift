@@ -22,14 +22,16 @@ class AddWeightViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var weightField: UITextField!
+    var weightField = UITextField()
     
-    @IBOutlet weak var datePickerField: UIDatePicker!
+    var datePickerField = UIDatePicker()
     
-    @IBAction func datePickerDidChanged(_ sender: Any) {
+    var saveButton = UIButton()
+    
+    func datePickerDidChanged(_ sender: Any) {
         print(datePickerField.date)
     }
-    @IBAction func saveButton(_ sender: Any) {
+    func saveButtonDidPressed(_ sender: Any) {
         
         let input = Double(weightField.text!)!
         let dateDouble = convertDateToDouble(date: datePickerField.date)

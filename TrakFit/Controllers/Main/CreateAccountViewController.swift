@@ -11,12 +11,14 @@ import Firebase
 class CreateAccountViewController: UIViewController {
 
 
-    @IBOutlet weak var emailField: UITextField!
+    var emailField = UITextField()
 
-    @IBOutlet weak var passwordField: UITextField!
+    var passwordField = UITextField()
     
-    @IBOutlet weak var confirmPasswordField: UITextField!
-    @IBAction func createAccountButton(_ sender: UIButton) {
+    var confirmPasswordField = UITextField()
+    
+    var createAccountButton = UIButton()
+    func createAccountButtonDidPressed(_ sender: UIButton) {
 //        if passwordField.text != confirmPasswordField.text && passwordField.text != "" passwordField.text {
 //            createAlert(title: "Password Error", message: "The passwords must match")
 //            return

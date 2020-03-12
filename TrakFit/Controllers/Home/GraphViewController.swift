@@ -13,8 +13,9 @@ import Firebase
 class GraphViewController: UIViewController {
 
     
-    @IBOutlet weak var mainChart: LineChartView!
+    var mainChart: LineChartView!
     var inputWeights : [Double] = []
+    var updateButton = UIButton()
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
     
@@ -41,7 +42,7 @@ class GraphViewController: UIViewController {
         return myNSDate
     }
     
-    @IBAction func updateButton(_ sender: Any) {
+    func updateButtonDidPressed(_ sender: Any) {
         readFromDatabase()
         
     }

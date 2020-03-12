@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */; };
 		0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */; };
-		0D2F168223EAD8A200F3F5D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168123EAD8A200F3F5D7 /* ViewController.swift */; };
 		0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */; };
 		0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */; };
 		0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */; };
 		0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */; };
 		0D82B2F724199195005E2235 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B2F624199195005E2235 /* RootViewController.swift */; };
-		0D82B2FA2419A6BE005E2235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D82B2F82419A6BE005E2235 /* Main.storyboard */; };
-		0D82B2FC2419A6C7005E2235 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D82B2FB2419A6C7005E2235 /* Home.storyboard */; };
+		0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3022419B325005E2235 /* CustomTextField.swift */; };
+		0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3042419B4B5005E2235 /* LoginView.swift */; };
 		0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D890871240F042D004A5E0A /* GraphViewController.swift */; };
 		0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8908A2241630A7004A5E0A /* WeightEntry.swift */; };
 		0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8908A4241826E2004A5E0A /* ProfileViewController.swift */; };
@@ -24,6 +23,7 @@
 		0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */; };
 		0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */; };
 		0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */; };
+		0DE80B2D2419B82900692560 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE80B2C2419B82900692560 /* CustomButton.swift */; };
 		D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,15 +31,14 @@
 		0D2F167A23EAD8A200F3F5D7 /* TrakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0D2F168123EAD8A200F3F5D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0D2F168723EAD8A200F3F5D7 /* TrakFit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrakFit.xcdatamodel; sourceTree = "<group>"; };
 		0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F168C23EAD8A400F3F5D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2F168E23EAD8A400F3F5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D82B2F624199195005E2235 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		0D82B2F92419A6BE005E2235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0D82B2FB2419A6C7005E2235 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		0D82B3022419B325005E2235 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		0D82B3042419B4B5005E2235 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0D890871240F042D004A5E0A /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		0D8908A2241630A7004A5E0A /* WeightEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightEntry.swift; sourceTree = "<group>"; };
 		0D8908A4241826E2004A5E0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		0DE80B2C2419B82900692560 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		364369495FB7CB46B216184D /* Pods-TrakFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.release.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.release.xcconfig"; sourceTree = "<group>"; };
 		5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrakFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4C59A748FD5E9E0C34406F /* Pods-TrakFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrakFit.debug.xcconfig"; path = "Target Support Files/Pods-TrakFit/Pods-TrakFit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,14 +102,13 @@
 		0D2F167C23EAD8A200F3F5D7 /* TrakFit */ = {
 			isa = PBXGroup;
 			children = (
+				0DE80B302419B8AD00692560 /* Classes */,
+				0DE80B2F2419B86F00692560 /* View */,
+				0DE80B2E2419B85800692560 /* CustomUI */,
 				0D89089D2415CC54004A5E0A /* Controllers */,
 				0D89089C2415CC36004A5E0A /* Storyboard */,
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
 				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
-				0D2F168123EAD8A200F3F5D7 /* ViewController.swift */,
-				0D8908A2241630A7004A5E0A /* WeightEntry.swift */,
-				0D8908A624182BB3004A5E0A /* UserProperties.swift */,
-				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
 				0D2F168E23EAD8A400F3F5D7 /* Info.plist */,
 				0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */,
 				0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */,
@@ -120,8 +119,6 @@
 		0D89089C2415CC36004A5E0A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				0D82B2FB2419A6C7005E2235 /* Home.storyboard */,
-				0D82B2F82419A6BE005E2235 /* Main.storyboard */,
 				0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
@@ -154,6 +151,33 @@
 				0D8908A4241826E2004A5E0A /* ProfileViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0DE80B2E2419B85800692560 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				0DE80B2C2419B82900692560 /* CustomButton.swift */,
+				0D82B3022419B325005E2235 /* CustomTextField.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		0DE80B2F2419B86F00692560 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D82B3042419B4B5005E2235 /* LoginView.swift */,
+				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DE80B302419B8AD00692560 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0D8908A2241630A7004A5E0A /* WeightEntry.swift */,
+				0D8908A624182BB3004A5E0A /* UserProperties.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,10 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */,
-				0D82B2FC2419A6C7005E2235 /* Home.storyboard in Resources */,
 				0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */,
 				0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */,
-				0D82B2FA2419A6BE005E2235 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,18 +295,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */,
 				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
 				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
 				0D82B2F724199195005E2235 /* RootViewController.swift in Sources */,
 				0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */,
 				0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */,
 				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
-				0D2F168223EAD8A200F3F5D7 /* ViewController.swift in Sources */,
+				0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
 				0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */,
 				0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */,
 				0D8908A724182BB3004A5E0A /* UserProperties.swift in Sources */,
+				0DE80B2D2419B82900692560 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +321,6 @@
 				0D2F168C23EAD8A400F3F5D7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		0D82B2F82419A6BE005E2235 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D82B2F92419A6BE005E2235 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
