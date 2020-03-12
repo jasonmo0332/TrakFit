@@ -13,6 +13,12 @@
 		0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */; };
 		0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */; };
 		0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */; };
+		0D3C073B2419CE88003A1C75 /* AddWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C073A2419CE88003A1C75 /* AddWeightView.swift */; };
+		0D3C073D2419CE9A003A1C75 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C073C2419CE9A003A1C75 /* ProfileView.swift */; };
+		0D3C073F2419CEAC003A1C75 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C073E2419CEAC003A1C75 /* GraphView.swift */; };
+		0D3C07412419D16A003A1C75 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C07402419D16A003A1C75 /* CustomLabel.swift */; };
+		0D3C07432419E0D1003A1C75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C07422419E0D1003A1C75 /* MainTabBarController.swift */; };
+		0D3C0745241AB076003A1C75 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C0744241AB076003A1C75 /* CreateAccountView.swift */; };
 		0D82B2F724199195005E2235 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B2F624199195005E2235 /* RootViewController.swift */; };
 		0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3022419B325005E2235 /* CustomTextField.swift */; };
 		0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3042419B4B5005E2235 /* LoginView.swift */; };
@@ -36,6 +42,12 @@
 		0D2F168C23EAD8A400F3F5D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2F168E23EAD8A400F3F5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D3C073A2419CE88003A1C75 /* AddWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeightView.swift; sourceTree = "<group>"; };
+		0D3C073C2419CE9A003A1C75 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		0D3C073E2419CEAC003A1C75 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		0D3C07402419D16A003A1C75 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		0D3C07422419E0D1003A1C75 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0D3C0744241AB076003A1C75 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
 		0D82B2F624199195005E2235 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		0D82B3022419B325005E2235 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0D82B3042419B4B5005E2235 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -147,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0DBFDB9A23F95C2100B51A36 /* AddWeightViewController.swift */,
+				0D3C07422419E0D1003A1C75 /* MainTabBarController.swift */,
 				0D890871240F042D004A5E0A /* GraphViewController.swift */,
 				0D8908A4241826E2004A5E0A /* ProfileViewController.swift */,
 			);
@@ -158,6 +171,7 @@
 			children = (
 				0DE80B2C2419B82900692560 /* CustomButton.swift */,
 				0D82B3022419B325005E2235 /* CustomTextField.swift */,
+				0D3C07402419D16A003A1C75 /* CustomLabel.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -166,6 +180,10 @@
 			isa = PBXGroup;
 			children = (
 				0D82B3042419B4B5005E2235 /* LoginView.swift */,
+				0D3C073A2419CE88003A1C75 /* AddWeightView.swift */,
+				0D3C073C2419CE9A003A1C75 /* ProfileView.swift */,
+				0D3C073E2419CEAC003A1C75 /* GraphView.swift */,
+				0D3C0744241AB076003A1C75 /* CreateAccountView.swift */,
 				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
 			);
 			path = View;
@@ -296,16 +314,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */,
+				0D3C07412419D16A003A1C75 /* CustomLabel.swift in Sources */,
 				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
 				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
 				0D82B2F724199195005E2235 /* RootViewController.swift in Sources */,
 				0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */,
 				0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */,
 				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
+				0D3C073B2419CE88003A1C75 /* AddWeightView.swift in Sources */,
+				0D3C073D2419CE9A003A1C75 /* ProfileView.swift in Sources */,
 				0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
+				0D3C07432419E0D1003A1C75 /* MainTabBarController.swift in Sources */,
+				0D3C0745241AB076003A1C75 /* CreateAccountView.swift in Sources */,
 				0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */,
+				0D3C073F2419CEAC003A1C75 /* GraphView.swift in Sources */,
 				0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */,
 				0D8908A724182BB3004A5E0A /* UserProperties.swift in Sources */,
 				0DE80B2D2419B82900692560 /* CustomButton.swift in Sources */,

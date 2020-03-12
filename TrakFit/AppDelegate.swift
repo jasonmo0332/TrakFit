@@ -13,7 +13,6 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var loginViewController: LoginViewController?
 
     var window: UIWindow?
 
@@ -22,13 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        self.window = UIWindow(frame: UIScreen.main.bounds)
 //        self.window?.makeKeyAndVisible()
-        
+//
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = RootViewController()
 //
 //        window?.makeKeyAndVisible()
 
 //        rootViewController.showLoginScreen()
+        
         return true
     }
 
@@ -95,7 +95,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: - Onboarding
 
-
 extension AppDelegate {
    static var shared: AppDelegate {
       return UIApplication.shared.delegate as! AppDelegate
@@ -104,3 +103,4 @@ var rootViewController: RootViewController {
       return window!.rootViewController as! RootViewController
    }
 }
+

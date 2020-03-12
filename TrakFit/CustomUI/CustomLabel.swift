@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  CustomLabel.swift
 //  TrakFit
 //
 //  Created by Jason Mo on 3/11/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CustomButton : UIButton {
+class CustomLabel : UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setTitleColor(.systemBlue, for: .normal)
+        textColor = .black
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

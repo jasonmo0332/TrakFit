@@ -12,36 +12,42 @@ import RealmSwift
 
 class AddWeightViewController: UIViewController {
 
+    let addWeightView = AddWeightView()
+    
     let ref = Database.database().reference()
     let userId = Auth.auth().currentUser?.uid
     var weights : [Double] = []
     var dates : [Double] = []
+    
+    override func loadView() {
+        view = addWeightView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addWeightView.saveButton.addTarget(self, action: #selector(saveButtonDidPressed(_:)), for: .touchUpInside)
+        
 
         // Do any additional setup after loading the view.
     }
     
-    var weightField = UITextField()
-    
-    var datePickerField = UIDatePicker()
-    
-    var saveButton = UIButton()
-    
     func datePickerDidChanged(_ sender: Any) {
-        print(datePickerField.date)
+        
     }
-    func saveButtonDidPressed(_ sender: Any) {
+    @objc func saveButtonDidPressed(_ sender: Any) {
+        if let weightText = addWeightView.weightTextfield.text {
+            let input = Double(weightText)
+            let dateDouble = convertDateToDouble(date: addWeightView.datePicker.date)
+            var entry = WeightEntry(date: addWeightView.datePicker.date, weight: input ?? 0, dateNumberValue: dateDouble)
+            //convert the date value to Double literal
+            
+            
+            weights.append(input ?? 0)
+            dates.append(dateDouble)
+            self.ref.child("users").child(userId!).setValue(["date": dates, "weight" : weights])
+        }
         
-        let input = Double(weightField.text!)!
-        let dateDouble = convertDateToDouble(date: datePickerField.date)
-        var entry = WeightEntry(date: datePickerField.date, weight: input, dateNumberValue: dateDouble)
-        //convert the date value to Double literal
         
-        
-        weights.append(input)
-        dates.append(dateDouble)
-        self.ref.child("users").child(userId!).setValue(["date": dates, "weight" : weights])
         
         //need to read the NSArray for previous values then Append new values
         

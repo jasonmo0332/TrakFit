@@ -9,11 +9,9 @@
 import UIKit
 import Firebase
 
-protocol LoginViewControllerDelegate: AnyObject {
-    func hideOnboarding()
-}
 
 class LoginViewController: UIViewController {
+    
     
     let loginView = LoginView()
     
@@ -21,7 +19,7 @@ class LoginViewController: UIViewController {
         view = loginView
     }
     
-    func signInButtonDidPressed(_ sender: Any) {
+    @objc func signInButtonDidPressed(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginView.usernameField.text ?? "", password: loginView.passwordField.text!) { [weak self] authResult, error in
             
         guard let strongSelf = self else { return }
@@ -29,23 +27,14 @@ class LoginViewController: UIViewController {
                 strongSelf.createAlert(title: "Invalid Login", message: error.localizedDescription)
                 return
             }
-//            self?.performSegue(withIdentifier: "LoginSegue", sender: self)
-            
-//            strongSelf.delegate?.hideOnboarding()
             AppDelegate.shared.rootViewController.switchToMainScreen()
         }
-        
-        /*let storyBoard : UIStoryboard = UIStoryboard(name: "Home", bundle:nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! UITabBarController
-        let navigationController = UINavigationController(rootViewController: newViewController)
-        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-        print("\(newViewController) hello")
-        appdelegate.window!.rootViewController = navigationController*/
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         //usernameField.delegate = self
         // Do any additional setup after loading the view.
+        loginView.signInButton.addTarget(self, action: #selector(signInButtonDidPressed(_:)), for: .touchUpInside)
     }
     
 

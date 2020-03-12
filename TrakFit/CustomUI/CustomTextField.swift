@@ -11,17 +11,27 @@ import UIKit
 class CustomTextField : UITextField {
     
     enum TextFieldType {
-        case username
+        case email
         case password
+        case confirmPassword
+        case weight
     }
     
     var type: TextFieldType? {
         didSet {
             switch type {
-            case .username:
-                placeholder = "username"
+            case .email:
+                placeholder = "Email"
+            case .password:
+                placeholder = "Password"
+                autocapitalizationType = .none
+            case .weight:
+                placeholder = "Enter Weight"
+            case .confirmPassword:
+                placeholder = "Confirm Password"
+                autocapitalizationType = .none
             default:
-                placeholder = "password"
+                break
             }
         }
     }

@@ -10,30 +10,35 @@ import UIKit
 import Firebase
 class CreateAccountViewController: UIViewController {
 
-
-    var emailField = UITextField()
-
-    var passwordField = UITextField()
+    let createAccountView = CreateAccountView()
     
-    var confirmPasswordField = UITextField()
+    override func loadView() {
+        view = CreateAccountView()
+    }
     
-    var createAccountButton = UIButton()
-    func createAccountButtonDidPressed(_ sender: UIButton) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //usernameField.delegate = self
+        // Do any additional setup after loading the view.
+        createAccountView.signupButton.addTarget(self, action: #selector(signupButtonDidPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc func signupButtonDidPressed(_ sender: UIButton) {
 //        if passwordField.text != confirmPasswordField.text && passwordField.text != "" passwordField.text {
 //            createAlert(title: "Password Error", message: "The passwords must match")
 //            return
 //        }
-        guard let passwordFieldText = passwordField.text,
-            passwordFieldText == confirmPasswordField.text,
+        guard let passwordFieldText = createAccountView.passwordField.text,
+            passwordFieldText == createAccountView.confirmPasswordField.text,
             passwordFieldText.count > 6 else {
             createAlert(title: "Password Error", message: "The passwords must match")
             return
         }
-        guard let emailFieldText = emailField.text else {
+        guard let emailFieldText = createAccountView.emailField.text else {
             createAlert(title: "Email Error", message: "The passwords must match")
             return
         }
-        Auth.auth().createUser(withEmail: emailFieldText, password: passwordField.text ?? "") { authResult, error in
+        Auth.auth().createUser(withEmail: emailFieldText, password: passwordFieldText) { authResult, error in
             guard let user = authResult?.user, error == nil else {
                 self.createAlert(title: "Username Error", message: "\(error!.localizedDescription)")
                 return
@@ -50,11 +55,7 @@ class CreateAccountViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
         self.present(alertController, animated: true, completion: nil)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    
     
 
     /*
@@ -66,5 +67,7 @@ class CreateAccountViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
+extension CreateAccountViewController : UITextFieldDelegate {
+    
 }

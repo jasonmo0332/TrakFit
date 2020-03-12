@@ -11,7 +11,7 @@ import UIKit
 class RootViewController: UIViewController {
     private var current: UIViewController
     init() {
-      self.current = LoginViewController()
+      self.current = CreateAccountViewController()
       super.init(nibName: nil, bundle: nil)
    }
     

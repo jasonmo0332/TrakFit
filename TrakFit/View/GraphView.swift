@@ -1,5 +1,5 @@
 //
-//  CustomButton.swift
+//  GraphView.swift
 //  TrakFit
 //
 //  Created by Jason Mo on 3/11/20.
@@ -7,12 +7,20 @@
 //
 
 import UIKit
-
-class CustomButton : UIButton {
+class GraphView : UIView {
+    
+    var addWeightButton = CustomButton()
+    var updateButton = CustomButton()
+//    var graphView = LineChartView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setTitleColor(.systemBlue, for: .normal)
+        backgroundColor = .white
+        
+        
     }
+    
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

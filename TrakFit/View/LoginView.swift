@@ -13,8 +13,9 @@ class LoginView : UIView {
     
     var usernameField = CustomTextField()
     var passwordField = CustomTextField()
-    var signInButton = UIButton()
-
+    var signInButton = CustomButton()
+    var createAccountButton = CustomButton()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -23,13 +24,19 @@ class LoginView : UIView {
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(usernameField) // must initialize all components onto the view
-        usernameField.type = .username
+        usernameField.type = .email
         
         addSubview(passwordField)
         passwordField.type = .password
         
         addSubview(signInButton)
+        signInButton.setTitle("Sign In", for: .normal)
+        
+        addSubview(createAccountButton)
+        createAccountButton.setTitle("Create Account", for: .normal)
         
         setupConstraints()
     }
@@ -57,6 +64,13 @@ class LoginView : UIView {
             signInButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 10),
             signInButton.widthAnchor.constraint(equalToConstant: 120),
             signInButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            createAccountButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 60),
+            createAccountButton.widthAnchor.constraint(equalToConstant: 200),
+            createAccountButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
     }

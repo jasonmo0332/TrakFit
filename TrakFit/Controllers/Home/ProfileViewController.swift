@@ -12,22 +12,28 @@ import Firebase
 class ProfileViewController: UIViewController {
 
     let firebaseAuth = Auth.auth()
-    var profileNameLabel = UILabel()
-    var logoutButton = UIButton()
+    
+    let profileView = ProfileView()
+    
+    override func loadView() {
+        view = profileView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
+        
     }
     
-    func logoutButtonButtonPressed(_ sender: Any) {
+    @objc func logoutButtonDidPressed(_ sender: Any) {
         do {
           try firebaseAuth.signOut()
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
 //        self.performSegue(withIdentifier: "LogoutSegue", sender: self)
-        AppDelegate.shared.rootViewController.switchToLogout()
+//        AppDelegate.shared.rootViewController.switchToLogout()
     }
     
     /*
