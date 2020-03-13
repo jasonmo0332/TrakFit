@@ -20,8 +20,8 @@ class MainTabBarController: UITabBarController {
     }
     
     func setupTabBar() {
-        let profileController = UINavigationController(rootViewController: ProfileViewController())
-        let graphController = UINavigationController(rootViewController: GraphViewController())
+        let profileController = ProfileViewController()
+        let graphController = GraphViewController()
         profileController.tabBarItem.image = UIImage(named: "ProfileIcon")
         profileController.tabBarItem.selectedImage = UIImage(named: "ProfileIcon")
         

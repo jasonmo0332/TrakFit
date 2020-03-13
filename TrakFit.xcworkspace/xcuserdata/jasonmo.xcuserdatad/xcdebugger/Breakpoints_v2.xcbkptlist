@@ -14,9 +14,9 @@
             filePath = "TrakFit/Controllers/Home/GraphViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "readFromDatabase()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "readFromFirebaseDatabase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "TrakFit/Controllers/Home/GraphViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "readFromDatabase()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "readFromFirebaseDatabase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "switchToMainScreen()"
+            landmarkName = "switchToMainProfileScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

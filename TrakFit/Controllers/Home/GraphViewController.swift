@@ -9,15 +9,23 @@
 import UIKit
 import Charts
 import Firebase
+import RealmSwift
 
 class GraphViewController: UIViewController {
 
     
     var inputWeights : [Double] = []
     var updateButton = UIButton()
+    
+    //import variables
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
+    let realm = try! Realm()
+//    lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
+    var weightEntriesRealm = try! Realm().objects(WeightEntry.self)
+    //View Variable
     let graphView = GraphView()
+    let addWeightViewController = AddWeightViewController()
     
     override func loadView() {
         view = graphView
@@ -33,7 +41,8 @@ class GraphViewController: UIViewController {
         super.viewDidLoad()
         graphView.updateButton.addTarget(self, action: #selector(updateButtonDidPressed(_:)), for: .touchUpInside)
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
-        readFromDatabase()
+        readFromRealmDatabase()
+        addWeightViewController.addWeightViewControllerDelegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -48,20 +57,26 @@ class GraphViewController: UIViewController {
     }
     
     @objc func updateButtonDidPressed(_ sender: Any) {
-        readFromDatabase()
+        readFromRealmDatabase()
         
     }
     
     @objc func addWeightButtonDidPressed(_ sender: Any) {
-        SceneDelegate.shared.rootViewController.switchToAddWeightScreen()
+
+        //modal push
+        addWeightViewController.modalPresentationStyle = .fullScreen
+        addWeightViewController.transitioningDelegate = self
+        present(addWeightViewController, animated: true, completion: nil)
     }
     
-    func readFromDatabase() {
+    func readFromFirebaseDatabase() {
         print(user!.uid)
         ref.child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
             let valueDic = snapshot.value as? NSDictionary
+            //grabs weight array
             if let weightVals = valueDic?["weight"], let weightValsAsDoubles = weightVals as? [Double] {
+                //weights being display
                 self.inputWeights = weightValsAsDoubles
             }
             self.updateGraph()
@@ -71,7 +86,19 @@ class GraphViewController: UIViewController {
         }
     }
     
+    func readFromRealmDatabase() {
+        var grabFromRealmWeightEntries : [Double] = []
+        for weightEntries in weightEntriesRealm {
+            grabFromRealmWeightEntries.append(weightEntries.weight)
+            print(weightEntries.weight)
+        }
+        self.inputWeights = grabFromRealmWeightEntries
+        self.updateGraph()
+    }
+    
     func updateGraph() {
+        
+        
         var lineChartEntryWeight = [ChartDataEntry]()
 
         
@@ -103,3 +130,21 @@ class GraphViewController: UIViewController {
     */
 
 }
+
+extension GraphViewController:  UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self as? UIViewControllerAnimatedTransitioning
+    }
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self as? UIViewControllerAnimatedTransitioning
+    }
+}
+
+extension GraphViewController: AddWeightViewControllerDelegate {
+    func updateOnSave() {
+//        addWeightViewController.addWeightViewControllerDelegate = self
+        readFromRealmDatabase()
+    }
+}
+

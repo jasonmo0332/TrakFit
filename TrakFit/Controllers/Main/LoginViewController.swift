@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            SceneDelegate.shared.rootViewController.switchToMainScreen()
+            SceneDelegate.shared.rootViewController.switchToMainProfileScreen()
         }
     }
     

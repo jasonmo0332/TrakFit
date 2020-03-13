@@ -114,6 +114,7 @@
 		0D2F167C23EAD8A200F3F5D7 /* TrakFit */ = {
 			isa = PBXGroup;
 			children = (
+				0D3C0746241B6401003A1C75 /* Model */,
 				0DE80B302419B8AD00692560 /* Classes */,
 				0DE80B2F2419B86F00692560 /* View */,
 				0DE80B2E2419B85800692560 /* CustomUI */,
@@ -124,6 +125,13 @@
 				0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */,
 			);
 			path = TrakFit;
+			sourceTree = "<group>";
+		};
+		0D3C0746241B6401003A1C75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0D89089C2415CC36004A5E0A /* Storyboard */ = {

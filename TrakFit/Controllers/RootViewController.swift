@@ -39,16 +39,13 @@ class RootViewController: UIViewController {
         current = new                                  // 9
      }
     
-    func switchToMainScreen() {
+    func switchToMainProfileScreen() {
         let tabBarViewController = MainTabBarController()
 //        let profileViewController = tabBarViewController.profileController
         animateFadeTransition(to: tabBarViewController)
     }
     
-    func switchToAddWeightScreen() {
-        let addWeightViewController = AddWeightViewController()
-        animateFadeTransition(to: addWeightViewController)
-    }
+    
     
     func switchToLogout() {
        let loginViewController = LoginViewController()

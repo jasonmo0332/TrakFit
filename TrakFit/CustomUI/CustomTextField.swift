@@ -22,6 +22,7 @@ class CustomTextField : UITextField {
             switch type {
             case .email:
                 placeholder = "Email"
+                autocapitalizationType = .none
             case .password:
                 placeholder = "Password"
                 autocapitalizationType = .none

@@ -10,6 +10,9 @@ pod 'Firebase/Database'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 
+#add pod for charting
+pod "Macaw", "0.9.5"
+pod 'Charts'
 target 'TrakFit' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
