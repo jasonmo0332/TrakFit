@@ -9,7 +9,8 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,9 +21,10 @@ class MainTabBarController: UITabBarController {
     
     func setupTabBar() {
         let profileController = UINavigationController(rootViewController: ProfileViewController())
+        let graphController = UINavigationController(rootViewController: GraphViewController())
         profileController.tabBarItem.image = UIImage(named: "ProfileIcon")
         profileController.tabBarItem.selectedImage = UIImage(named: "ProfileIcon")
-        let graphController = UINavigationController(rootViewController: GraphViewController())
+        
         graphController.tabBarItem.image = UIImage(named: "GraphIcon")
         graphController.tabBarItem.selectedImage = UIImage(named: "GraphIcon")
         

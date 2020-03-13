@@ -119,8 +119,6 @@
 				0DE80B2E2419B85800692560 /* CustomUI */,
 				0D89089D2415CC54004A5E0A /* Controllers */,
 				0D89089C2415CC36004A5E0A /* Storyboard */,
-				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
-				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
 				0D2F168E23EAD8A400F3F5D7 /* Info.plist */,
 				0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */,
 				0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */,
@@ -184,6 +182,8 @@
 				0D3C073C2419CE9A003A1C75 /* ProfileView.swift */,
 				0D3C073E2419CEAC003A1C75 /* GraphView.swift */,
 				0D3C0744241AB076003A1C75 /* CreateAccountView.swift */,
+				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
+				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
 				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
 			);
 			path = View;

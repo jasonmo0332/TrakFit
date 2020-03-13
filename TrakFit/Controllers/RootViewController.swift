@@ -11,9 +11,10 @@ import UIKit
 class RootViewController: UIViewController {
     private var current: UIViewController
     init() {
-      self.current = CreateAccountViewController()
-      super.init(nibName: nil, bundle: nil)
-   }
+        let startNav = UINavigationController(rootViewController: LoginViewController())
+        self.current = startNav
+        super.init(nibName: nil, bundle: nil)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -39,9 +40,14 @@ class RootViewController: UIViewController {
      }
     
     func switchToMainScreen() {
-        let profileViewController = ProfileViewController()
-        let new = UINavigationController(rootViewController: profileViewController)
-        animateFadeTransition(to: new)
+        let tabBarViewController = MainTabBarController()
+//        let profileViewController = tabBarViewController.profileController
+        animateFadeTransition(to: tabBarViewController)
+    }
+    
+    func switchToAddWeightScreen() {
+        let addWeightViewController = AddWeightViewController()
+        animateFadeTransition(to: addWeightViewController)
     }
     
     func switchToLogout() {

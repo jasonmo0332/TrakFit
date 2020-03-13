@@ -54,6 +54,10 @@ class AddWeightViewController: UIViewController {
         
     }
     
+    @objc func cancelButtonDidPressed(_ sender: Any) {
+    
+    }
+    
     func convertDateToDouble(date: Date) -> Double {
         //convert to double (loses milli)
         let dateTimeInterval = date.timeIntervalSince1970

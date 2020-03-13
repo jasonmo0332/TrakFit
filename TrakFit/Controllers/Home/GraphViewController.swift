@@ -13,12 +13,15 @@ import Firebase
 class GraphViewController: UIViewController {
 
     
-    var mainChart: LineChartView!
     var inputWeights : [Double] = []
     var updateButton = UIButton()
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
+    let graphView = GraphView()
     
+    override func loadView() {
+        view = graphView
+    }
     
 //    // convert Int to Double
 //    let timeInterval = Double(myInt)
@@ -28,6 +31,8 @@ class GraphViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        graphView.updateButton.addTarget(self, action: #selector(updateButtonDidPressed(_:)), for: .touchUpInside)
+        graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
         readFromDatabase()
         // Do any additional setup after loading the view.
     }
@@ -42,9 +47,13 @@ class GraphViewController: UIViewController {
         return myNSDate
     }
     
-    func updateButtonDidPressed(_ sender: Any) {
+    @objc func updateButtonDidPressed(_ sender: Any) {
         readFromDatabase()
         
+    }
+    
+    @objc func addWeightButtonDidPressed(_ sender: Any) {
+        SceneDelegate.shared.rootViewController.switchToAddWeightScreen()
     }
     
     func readFromDatabase() {
@@ -79,8 +88,8 @@ class GraphViewController: UIViewController {
         let data = LineChartData(dataSets: [weightLine])
         
         
-        mainChart.data = data
-        mainChart.chartDescription?.text = "My Weight"
+        graphView.graphView.data = data
+        graphView.graphView.chartDescription?.text = "My Weight"
     }
 
     /*

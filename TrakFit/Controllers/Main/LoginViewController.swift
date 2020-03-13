@@ -19,6 +19,14 @@ class LoginViewController: UIViewController {
         view = loginView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //usernameField.delegate = self
+        // Do any additional setup after loading the view.
+        loginView.signInButton.addTarget(self, action: #selector(signInButtonDidPressed(_:)), for: .touchUpInside)
+        loginView.createAccountButton.addTarget(self, action: #selector(createAccountButtonDidPressed(_:)), for: .touchUpInside)
+    }
+    
     @objc func signInButtonDidPressed(_ sender: Any) {
         Auth.auth().signIn(withEmail: loginView.usernameField.text ?? "", password: loginView.passwordField.text!) { [weak self] authResult, error in
             
@@ -27,18 +35,18 @@ class LoginViewController: UIViewController {
                 strongSelf.createAlert(title: "Invalid Login", message: error.localizedDescription)
                 return
             }
-            AppDelegate.shared.rootViewController.switchToMainScreen()
+            
+            SceneDelegate.shared.rootViewController.switchToMainScreen()
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //usernameField.delegate = self
-        // Do any additional setup after loading the view.
-        loginView.signInButton.addTarget(self, action: #selector(signInButtonDidPressed(_:)), for: .touchUpInside)
+    
+    @objc func createAccountButtonDidPressed(_ sender: Any) {
+        let createAccountViewController = CreateAccountViewController()
+        print("we here")
+        navigationController?.pushViewController(createAccountViewController, animated: true)
+        
     }
     
-
-  
     func createAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: .alert)

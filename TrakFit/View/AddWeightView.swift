@@ -12,6 +12,7 @@ class AddWeightView : UIView {
     var saveButton = CustomButton()
     var weightTextfield = CustomTextField()
     var weightLabel = CustomLabel()
+    var cancelButton = CustomButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,9 +21,12 @@ class AddWeightView : UIView {
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         weightTextfield.translatesAutoresizingMaskIntoConstraints = false
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(datePicker)
         addSubview(saveButton)
         saveButton.setTitle("Save", for: .normal)
+        addSubview(cancelButton)
+        cancelButton.setTitle("Cancel", for: .normal)
         addSubview(weightTextfield)
         addSubview(weightLabel)
         weightLabel.text = "Enter Weight:"
@@ -44,7 +48,7 @@ class AddWeightView : UIView {
             datePicker.heightAnchor.constraint(equalToConstant: 250)
         ])
         NSLayoutConstraint.activate([
-            saveButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            saveButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -60),
             saveButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
             saveButton.widthAnchor.constraint(equalToConstant: 150),
             saveButton.heightAnchor.constraint(equalToConstant: 30)
@@ -63,7 +67,12 @@ class AddWeightView : UIView {
             weightLabel.widthAnchor.constraint(equalToConstant: 120),
             weightLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
-        
+        NSLayoutConstraint.activate([
+            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60),
+            cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
+            cancelButton.widthAnchor.constraint(equalToConstant: 150),
+            cancelButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
     
 }

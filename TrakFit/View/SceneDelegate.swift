@@ -22,7 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let viewController = RootViewController()
+        let navController = UINavigationController()
+        let viewController = RootViewController() //Initialized as login view controller
+        //navController.viewControllers = [viewController]
         if let windowScene = scene as? UIWindowScene {
             self.window = UIWindow(windowScene: windowScene)
             self.window?.rootViewController = viewController
@@ -64,5 +66,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
+extension SceneDelegate {
+    static var shared: SceneDelegate {
+        let scene = UIApplication.shared.connectedScenes.first
+        let sd : SceneDelegate = ((scene?.delegate as? SceneDelegate)!) //because can have many scenes
+        return sd
+    }
+    var rootViewController: RootViewController {
+       return window!.rootViewController as! RootViewController
+    }
+}
 

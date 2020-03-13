@@ -32,8 +32,7 @@ class ProfileViewController: UIViewController {
         } catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
-//        self.performSegue(withIdentifier: "LogoutSegue", sender: self)
-//        AppDelegate.shared.rootViewController.switchToLogout()
+        SceneDelegate.shared.rootViewController.switchToLogout()
     }
     
     /*

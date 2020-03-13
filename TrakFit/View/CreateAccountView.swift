@@ -44,20 +44,20 @@ class CreateAccountView : UIView {
        NSLayoutConstraint.activate([
            emailField.centerXAnchor.constraint(equalTo: centerXAnchor),
            emailField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
-           emailField.widthAnchor.constraint(equalToConstant: 150),
+           emailField.widthAnchor.constraint(equalToConstant: 200),
            emailField.heightAnchor.constraint(equalToConstant: 30)
        ])
        NSLayoutConstraint.activate([
            passwordField.centerXAnchor.constraint(equalTo: centerXAnchor),
            passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
-           passwordField.widthAnchor.constraint(equalToConstant: 150),
+           passwordField.widthAnchor.constraint(equalToConstant: 200),
            passwordField.heightAnchor.constraint(equalToConstant: 30)
        ])
        
        NSLayoutConstraint.activate([
            confirmPasswordField.centerXAnchor.constraint(equalTo: centerXAnchor),
            confirmPasswordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 10),
-           confirmPasswordField.widthAnchor.constraint(equalToConstant: 150),
+           confirmPasswordField.widthAnchor.constraint(equalToConstant: 200),
            confirmPasswordField.heightAnchor.constraint(equalToConstant: 30)
        ])
        

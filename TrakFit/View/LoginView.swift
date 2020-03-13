@@ -15,6 +15,7 @@ class LoginView : UIView {
     var passwordField = CustomTextField()
     var signInButton = CustomButton()
     var createAccountButton = CustomButton()
+    var companyTitleLabel = CustomLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,8 +24,8 @@ class LoginView : UIView {
         usernameField.translatesAutoresizingMaskIntoConstraints = false //So it does not auto resize
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
-        
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        companyTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(usernameField) // must initialize all components onto the view
         usernameField.type = .email
@@ -38,6 +39,10 @@ class LoginView : UIView {
         addSubview(createAccountButton)
         createAccountButton.setTitle("Create Account", for: .normal)
         
+        addSubview(companyTitleLabel)
+        companyTitleLabel.text = "TrakFit"
+        companyTitleLabel.textAlignment = .center
+        
         setupConstraints()
     }
     
@@ -46,16 +51,24 @@ class LoginView : UIView {
     }
     
     func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+            companyTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            companyTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -200),
+            companyTitleLabel.widthAnchor.constraint(equalToConstant: 250),
+            companyTitleLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
         NSLayoutConstraint.activate([
             usernameField.centerXAnchor.constraint(equalTo: centerXAnchor),
             usernameField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
-            usernameField.widthAnchor.constraint(equalToConstant: 150),
+            usernameField.widthAnchor.constraint(equalToConstant: 200),
             usernameField.heightAnchor.constraint(equalToConstant: 30)
         ])
         NSLayoutConstraint.activate([
             passwordField.centerXAnchor.constraint(equalTo: centerXAnchor),
             passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
-            passwordField.widthAnchor.constraint(equalToConstant: 150),
+            passwordField.widthAnchor.constraint(equalToConstant: 200),
             passwordField.heightAnchor.constraint(equalToConstant: 30)
         ])
         
