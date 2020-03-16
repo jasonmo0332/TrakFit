@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let navController = UINavigationController()
         let viewController = RootViewController() //Initialized as login view controller
         //navController.viewControllers = [viewController]
         if let windowScene = scene as? UIWindowScene {

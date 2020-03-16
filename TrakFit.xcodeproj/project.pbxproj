@@ -19,6 +19,10 @@
 		0D3C07412419D16A003A1C75 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C07402419D16A003A1C75 /* CustomLabel.swift */; };
 		0D3C07432419E0D1003A1C75 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C07422419E0D1003A1C75 /* MainTabBarController.swift */; };
 		0D3C0745241AB076003A1C75 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C0744241AB076003A1C75 /* CreateAccountView.swift */; };
+		0D3C074C241EE3B3003A1C75 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C074B241EE3B3003A1C75 /* TableView.swift */; };
+		0D3C074E241EE66B003A1C75 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C074D241EE66B003A1C75 /* ProfileTableViewCell.swift */; };
+		0D3C0750241EEB21003A1C75 /* ProfileSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C074F241EEB21003A1C75 /* ProfileSettings.swift */; };
+		0D3C0752241EF406003A1C75 /* ProfileSettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C0751241EF406003A1C75 /* ProfileSettingsFactory.swift */; };
 		0D82B2F724199195005E2235 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B2F624199195005E2235 /* RootViewController.swift */; };
 		0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3022419B325005E2235 /* CustomTextField.swift */; };
 		0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D82B3042419B4B5005E2235 /* LoginView.swift */; };
@@ -48,6 +52,10 @@
 		0D3C07402419D16A003A1C75 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		0D3C07422419E0D1003A1C75 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0D3C0744241AB076003A1C75 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		0D3C074B241EE3B3003A1C75 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		0D3C074D241EE66B003A1C75 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		0D3C074F241EEB21003A1C75 /* ProfileSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettings.swift; sourceTree = "<group>"; };
+		0D3C0751241EF406003A1C75 /* ProfileSettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsFactory.swift; sourceTree = "<group>"; };
 		0D82B2F624199195005E2235 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		0D82B3022419B325005E2235 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0D82B3042419B4B5005E2235 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -185,9 +193,11 @@
 		0DE80B2F2419B86F00692560 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0D3C074D241EE66B003A1C75 /* ProfileTableViewCell.swift */,
+				0D3C074B241EE3B3003A1C75 /* TableView.swift */,
+				0D3C073C2419CE9A003A1C75 /* ProfileView.swift */,
 				0D82B3042419B4B5005E2235 /* LoginView.swift */,
 				0D3C073A2419CE88003A1C75 /* AddWeightView.swift */,
-				0D3C073C2419CE9A003A1C75 /* ProfileView.swift */,
 				0D3C073E2419CEAC003A1C75 /* GraphView.swift */,
 				0D3C0744241AB076003A1C75 /* CreateAccountView.swift */,
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
@@ -202,6 +212,8 @@
 			children = (
 				0D8908A2241630A7004A5E0A /* WeightEntry.swift */,
 				0D8908A624182BB3004A5E0A /* UserProperties.swift */,
+				0D3C074F241EEB21003A1C75 /* ProfileSettings.swift */,
+				0D3C0751241EF406003A1C75 /* ProfileSettingsFactory.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -323,6 +335,8 @@
 			files = (
 				0D82B3032419B325005E2235 /* CustomTextField.swift in Sources */,
 				0D3C07412419D16A003A1C75 /* CustomLabel.swift in Sources */,
+				0D3C0750241EEB21003A1C75 /* ProfileSettings.swift in Sources */,
+				0D3C074E241EE66B003A1C75 /* ProfileTableViewCell.swift in Sources */,
 				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
 				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
 				0D82B2F724199195005E2235 /* RootViewController.swift in Sources */,
@@ -330,11 +344,13 @@
 				0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */,
 				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
 				0D3C073B2419CE88003A1C75 /* AddWeightView.swift in Sources */,
+				0D3C074C241EE3B3003A1C75 /* TableView.swift in Sources */,
 				0D3C073D2419CE9A003A1C75 /* ProfileView.swift in Sources */,
 				0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
 				0D3C07432419E0D1003A1C75 /* MainTabBarController.swift in Sources */,
+				0D3C0752241EF406003A1C75 /* ProfileSettingsFactory.swift in Sources */,
 				0D3C0745241AB076003A1C75 /* CreateAccountView.swift in Sources */,
 				0DBFDB9323EB8B0800B51A36 /* LoginViewController.swift in Sources */,
 				0D3C073F2419CEAC003A1C75 /* GraphView.swift in Sources */,

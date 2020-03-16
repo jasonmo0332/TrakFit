@@ -23,11 +23,13 @@ class AddWeightView : UIView {
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(datePicker)
+        datePicker.datePickerMode = .date
         addSubview(saveButton)
         saveButton.setTitle("Save", for: .normal)
         addSubview(cancelButton)
         cancelButton.setTitle("Cancel", for: .normal)
         addSubview(weightTextfield)
+        weightTextfield.keyboardType = UIKeyboardType.decimalPad
         addSubview(weightLabel)
         weightLabel.text = "Enter Weight:"
         

@@ -13,7 +13,12 @@ class ProfileViewController: UIViewController {
 
     let firebaseAuth = Auth.auth()
     
+    
     let profileView = ProfileView()
+    
+    var profileCells: [ProfileSettings] {
+        return profileView.tableView.profileSettings
+    }
     
     override func loadView() {
         view = profileView
@@ -22,8 +27,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
-        
+//        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
+        profileView.tableView.dataSource = self
+        profileView.tableView.rowHeight = 100
     }
     
     @objc func logoutButtonDidPressed(_ sender: Any) {
@@ -45,4 +51,26 @@ class ProfileViewController: UIViewController {
     }
     */
 
+}
+
+
+extension ProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return profileCells.count
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 1000
+//    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
+        cell.title.text = profileCells[indexPath.row].title
+        cell.subtitle.text = profileCells[indexPath.row].subtitle
+//        cell.backgroundColor = .red
+//        cell.textLabel?.text? = profileCells[indexPath.row].title
+//        cell.detailTextLabel?.text? = profileCells[indexPath.row].subtitle
+        
+        return cell
+    }
 }

@@ -12,17 +12,17 @@ class GraphView : UIView {
     
     var addWeightButton = CustomButton()
     var updateButton = CustomButton()
-    var graphView = LineChartView()
+    var graphViewChart = LineChartView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         addWeightButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.translatesAutoresizingMaskIntoConstraints = false
-        graphView.translatesAutoresizingMaskIntoConstraints = false
+        graphViewChart.translatesAutoresizingMaskIntoConstraints = false
         addSubview(addWeightButton)
         addSubview(updateButton)
-        addSubview(graphView)
+        addSubview(graphViewChart)
         
         
         updateButton.setTitle("Update", for: .normal)
@@ -47,10 +47,10 @@ class GraphView : UIView {
             updateButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         NSLayoutConstraint.activate([
-            graphView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            graphView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
-            graphView.widthAnchor.constraint(equalToConstant: 400),
-            graphView.heightAnchor.constraint(equalToConstant: 500)
+            graphViewChart.centerXAnchor.constraint(equalTo: centerXAnchor),
+            graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
+            graphViewChart.widthAnchor.constraint(equalToConstant: 400),
+            graphViewChart.heightAnchor.constraint(equalToConstant: 500)
             
         
         ])

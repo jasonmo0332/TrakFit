@@ -15,8 +15,11 @@ class GraphViewController: UIViewController {
 
     
     var inputWeights : [Double] = []
+    var inputDates : [Double] = []
     var updateButton = UIButton()
     
+    //delegate
+    weak var axisFormatDelegate: IAxisValueFormatter?
     //import variables
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
@@ -41,8 +44,12 @@ class GraphViewController: UIViewController {
         super.viewDidLoad()
         graphView.updateButton.addTarget(self, action: #selector(updateButtonDidPressed(_:)), for: .touchUpInside)
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
+        axisFormatDelegate = self
         readFromRealmDatabase()
+        
+        //Delegate
         addWeightViewController.addWeightViewControllerDelegate = self
+        syncToFirebase()
         // Do any additional setup after loading the view.
     }
     
@@ -80,6 +87,7 @@ class GraphViewController: UIViewController {
                 self.inputWeights = weightValsAsDoubles
             }
             self.updateGraph()
+            
           // ...
           }) { (error) in
             print(error.localizedDescription)
@@ -88,35 +96,47 @@ class GraphViewController: UIViewController {
     
     func readFromRealmDatabase() {
         var grabFromRealmWeightEntries : [Double] = []
+        var grabFromRealmDateEntries : [Double] = []
         for weightEntries in weightEntriesRealm {
             grabFromRealmWeightEntries.append(weightEntries.weight)
-            print(weightEntries.weight)
+            grabFromRealmDateEntries.append(weightEntries.dateNumberValue)
         }
         self.inputWeights = grabFromRealmWeightEntries
+        self.inputDates = grabFromRealmDateEntries
         self.updateGraph()
+        self.syncToFirebase()
     }
     
     func updateGraph() {
-        
-        
         var lineChartEntryWeight = [ChartDataEntry]()
-
         
         //user input
-        for i in 0..<inputWeights.count {
-            print(i)
-            let value = ChartDataEntry(x: Double(i), y: inputWeights[i])
+        for i in 0..<inputDates.count {
+            print(inputDates[i])
+            let value = ChartDataEntry(x: inputDates[i], y: inputWeights[i])
             lineChartEntryWeight.append(value)
         }
         
+        
         let weightLine = LineChartDataSet(entries: lineChartEntryWeight, label: "Weight")
         weightLine.colors = [NSUIColor.blue]
+        let data = LineChartData(dataSet: weightLine)
         
-        let data = LineChartData(dataSets: [weightLine])
+        graphView.graphViewChart.data = data
+        graphView.graphViewChart.chartDescription?.text = "My Weight"
         
-        
-        graphView.graphView.data = data
-        graphView.graphView.chartDescription?.text = "My Weight"
+        //Setting up xAxis
+        let xAxis = graphView.graphViewChart.xAxis // format
+        xAxis.drawGridLinesEnabled = false
+        xAxis.drawAxisLineEnabled = false
+        xAxis.labelPosition = .bottom
+        xAxis.valueFormatter = axisFormatDelegate
+        xAxis.setLabelCount(inputDates.count, force: true)
+    }
+    
+    func syncToFirebase() {
+        let userId = Auth.auth().currentUser?.uid
+        self.ref.child("users").child(userId!).setValue(["date": inputDates, "weight" : inputWeights])
     }
 
     /*
@@ -148,3 +168,14 @@ extension GraphViewController: AddWeightViewControllerDelegate {
     }
 }
 
+extension GraphViewController: IAxisValueFormatter {
+
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MM-dd-yy"
+        
+        print(dateFormatter.string(from: Date(timeIntervalSince1970: value)))
+        return dateFormatter.string(from: Date(timeIntervalSince1970: value))
+    }
+}

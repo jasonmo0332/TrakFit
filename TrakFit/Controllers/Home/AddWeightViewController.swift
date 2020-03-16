@@ -18,8 +18,7 @@ class AddWeightViewController: UIViewController {
     //View variable
     let addWeightView = AddWeightView()
     //import variables
-    let ref = Database.database().reference()
-    let userId = Auth.auth().currentUser?.uid
+    
     let realm = try! Realm()
     lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
     //Delegate variable
@@ -28,9 +27,7 @@ class AddWeightViewController: UIViewController {
     
     
     
-    //Relevant member variable
-    var weights : [Double] = []
-    var dates : [Double] = []
+   
 
     
     override func loadView() {
@@ -55,22 +52,21 @@ class AddWeightViewController: UIViewController {
             if let input = Double(weightText) {
                 let inputDouble = input
             
-                let dateDouble = convertDateToDouble(date: addWeightView.datePicker.date)
-    //            var entry = WeightEntry(date: addWeightView.datePicker.date, weight: input ?? 0, dateNumberValue: dateDouble)
+                let dateDouble = convertDateToTimeIntervalDouble(date: addWeightView.datePicker.date)
                 //convert the date value to Double literal
                 let entry = WeightEntry()
                 entry.date = addWeightView.datePicker.date
                 entry.weight = inputDouble
                 entry.dateNumberValue = dateDouble
                 
-                weights.append(inputDouble)
-                dates.append(dateDouble)
+                //Writes to realm
                 try! realm.write() {
                     realm.add(entry)
                 }
                 weightEntriesRealm = realm.objects(WeightEntry.self)
-                self.ref.child("users").child(userId!).setValue(["date": dates, "weight" : weights])
+                
             }
+            //delegate call to update the graph after submit
             addWeightViewControllerDelegate?.updateOnSave()
             presentingViewController?.dismiss(animated: true, completion: nil)
         }
@@ -80,12 +76,12 @@ class AddWeightViewController: UIViewController {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    func convertDateToDouble(date: Date) -> Double {
+    func convertDateToTimeIntervalDouble(date: Date) -> Double {
         //convert to double (loses milli)
         let dateTimeInterval = date.timeIntervalSince1970
-        //convert to int
-        let dateInteger = Double(dateTimeInterval)
-        return dateInteger
+        //convert to Double
+        let dateDouble = Double(dateTimeInterval)
+        return dateDouble
     }
     
     
