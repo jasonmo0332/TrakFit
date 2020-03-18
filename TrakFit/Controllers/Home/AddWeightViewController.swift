@@ -20,6 +20,7 @@ class AddWeightViewController: UIViewController {
     //import variables
     
     let realm = try! Realm()
+    
     lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
     //Delegate variable
     weak var addWeightViewControllerDelegate: AddWeightViewControllerDelegate?

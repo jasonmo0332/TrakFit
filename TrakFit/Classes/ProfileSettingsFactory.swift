@@ -17,9 +17,11 @@ class ProfileSettingsFactory {
         }
         let goalInfo = ProfileSettings(title: "Goal", subtitle: "Enter your goal Preferences", cellIdentifier: "goal")
         let settingsInfo = ProfileSettings(title: "Settings", subtitle: "Account, Notifications", cellIdentifier: "settings")
+        let logoutInfo = ProfileSettings(title: "Logout", subtitle: "Logout of your current session", cellIdentifier: "logout")
         
         profileCells.append(goalInfo)
         profileCells.append(settingsInfo)
+        profileCells.append(logoutInfo)
         
         return profileCells
     }

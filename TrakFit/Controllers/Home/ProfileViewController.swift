@@ -29,16 +29,12 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
         profileView.tableView.dataSource = self
-        profileView.tableView.rowHeight = 100
+        profileView.tableView.rowHeight = 80
+        profileView.tableView.delegate = self
     }
     
     @objc func logoutButtonDidPressed(_ sender: Any) {
-        do {
-          try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
-        SceneDelegate.shared.rootViewController.switchToLogout()
+        
     }
     
     /*
@@ -59,18 +55,40 @@ extension ProfileViewController: UITableViewDataSource {
         return profileCells.count
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 1000
-//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
         cell.title.text = profileCells[indexPath.row].title
         cell.subtitle.text = profileCells[indexPath.row].subtitle
-//        cell.backgroundColor = .red
-//        cell.textLabel?.text? = profileCells[indexPath.row].title
-//        cell.detailTextLabel?.text? = profileCells[indexPath.row].subtitle
+
         
         return cell
     }
+    
+    
+        
+}
+
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = profileCells[indexPath.row]
+        
+        if cell.cellIdentifier == "logout" {
+            print("Pressed here")
+            do {
+                  try firebaseAuth.signOut()
+                } catch let signOutError as NSError {
+                  print ("Error signing out: %@", signOutError)
+                }
+                SceneDelegate.shared.rootViewController.switchToLogout()
+        }
+        if cell.cellIdentifier == "settings" {
+            
+        }
+        
+        if cell.cellIdentifier == "goal" {
+            
+        }
+    }
+    
 }
