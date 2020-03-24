@@ -49,7 +49,7 @@ class GraphView : UIView {
         NSLayoutConstraint.activate([
             graphViewChart.centerXAnchor.constraint(equalTo: centerXAnchor),
             graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
-            graphViewChart.widthAnchor.constraint(equalToConstant: 400),
+            graphViewChart.widthAnchor.constraint(equalToConstant: 380),
             graphViewChart.heightAnchor.constraint(equalToConstant: 500)
             
         

@@ -47,6 +47,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    @objc func forgotPasswordButtonDidPressed(_ sender: Any) {
+        let forgotPasswordViewController = ForgotPasswordViewController()
+        navigationController?.pushViewController(forgotPasswordViewController, animated: true)
+    }
+    
     func createAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message:
             message, preferredStyle: .alert)

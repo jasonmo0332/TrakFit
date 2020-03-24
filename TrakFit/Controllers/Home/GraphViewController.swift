@@ -13,9 +13,14 @@ import RealmSwift
 
 class GraphViewController: UIViewController {
 
-    
+    let firebasePath : String = "myWeight"
     var inputWeights : [Double] = []
     var inputDates : [Double] = []
+    var goalDateNumber : Double = 0.0
+    var goalWeight : Double = 0.0
+    var goalInterval : Double = 0.0
+    var goalStartWeight : Double = 0.0
+//    var goalDate = Date()
     var updateButton = UIButton()
     
     //delegate
@@ -25,7 +30,11 @@ class GraphViewController: UIViewController {
     let ref = Database.database().reference()
     let realm = try! Realm()
 //    lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
+    
+    //Variables for Realm
     var weightEntriesRealm = try! Realm().objects(WeightEntry.self)
+    var goalEntriesRealm = try! Realm().objects(GoalWeightEntry.self)
+    
     //View Variable
     let graphView = GraphView()
     let addWeightViewController = AddWeightViewController()
@@ -34,11 +43,6 @@ class GraphViewController: UIViewController {
         view = graphView
     }
     
-//    // convert Int to Double
-//    let timeInterval = Double(myInt)
-//
-//    // create NSDate from Double (NSTimeInterval)
-//    let myNSDate = Date(timeIntervalSince1970: timeInterval)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +80,7 @@ class GraphViewController: UIViewController {
         present(addWeightViewController, animated: true, completion: nil)
     }
     
-    func readFromFirebaseDatabase() {
+    /*func readFromFirebaseDatabase() {
         print(user!.uid)
         ref.child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           // Get user value
@@ -92,17 +96,38 @@ class GraphViewController: UIViewController {
           }) { (error) in
             print(error.localizedDescription)
         }
-    }
+    }*/
     
     func readFromRealmDatabase() {
+        //input weight
         var grabFromRealmWeightEntries : [Double] = []
         var grabFromRealmDateEntries : [Double] = []
+        
+        //goal
+        
+        //Add the goal values into realm
         for weightEntries in weightEntriesRealm {
             grabFromRealmWeightEntries.append(weightEntries.weight)
             grabFromRealmDateEntries.append(weightEntries.dateNumberValue)
         }
+        
         self.inputWeights = grabFromRealmWeightEntries
         self.inputDates = grabFromRealmDateEntries
+        
+        //Only singular value
+        for goalWeightEntries in goalEntriesRealm {
+            self.goalDateNumber = goalWeightEntries.dateNumberValue
+            self.goalWeight = goalWeightEntries.goalWeight
+            self.goalInterval = goalWeightEntries.interval
+            self.goalStartWeight = goalWeightEntries.startingWeight
+//            self.goalDate = goalWeightEntries.goalDate
+        }
+        /* TO DO:
+         Make sure to update the goal arrays
+         */
+        
+        
+        
         self.updateGraph()
         self.syncToFirebase()
     }
@@ -117,7 +142,6 @@ class GraphViewController: UIViewController {
             lineChartEntryWeight.append(value)
         }
         
-        
         let weightLine = LineChartDataSet(entries: lineChartEntryWeight, label: "Weight")
         weightLine.colors = [NSUIColor.blue]
         let data = LineChartData(dataSet: weightLine)
@@ -131,12 +155,20 @@ class GraphViewController: UIViewController {
         xAxis.drawAxisLineEnabled = false
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = axisFormatDelegate
+        xAxis.axisMaxLabels = 5
         xAxis.setLabelCount(inputDates.count, force: true)
+        
+        
+        /*
+         
+         Draw Goal graph here
+         
+         */
     }
     
-    func syncToFirebase() {
+    func syncToFirebase() { //Synchronize the data from realmbase into firebase
         let userId = Auth.auth().currentUser?.uid
-        self.ref.child("users").child(userId!).setValue(["date": inputDates, "weight" : inputWeights])
+        self.ref.child("users").child(userId!).child(firebasePath).setValue(["date": inputDates, "weight" : inputWeights])
     }
 
     /*
@@ -151,6 +183,7 @@ class GraphViewController: UIViewController {
 
 }
 
+//for showing transition
 extension GraphViewController:  UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self as? UIViewControllerAnimatedTransitioning
@@ -161,13 +194,15 @@ extension GraphViewController:  UIViewControllerTransitioningDelegate {
     }
 }
 
+
+//Delegate used to update the graph on submit from AddWeightViewController
 extension GraphViewController: AddWeightViewControllerDelegate {
     func updateOnSave() {
 //        addWeightViewController.addWeightViewControllerDelegate = self
         readFromRealmDatabase()
     }
 }
-
+//formats the xaxis to be dates
 extension GraphViewController: IAxisValueFormatter {
 
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {

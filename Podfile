@@ -4,7 +4,6 @@
 # add the Firebase pod for Google Analytics
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
-pod 'Charts'
 pod 'Firebase/Database'
 
 # add pods for any other desired Firebase products

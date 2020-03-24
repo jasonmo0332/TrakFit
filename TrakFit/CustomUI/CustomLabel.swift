@@ -19,7 +19,7 @@ class CustomLabel : UILabel {
             switch type {
             case .title:
                 textColor = .black
-                font =  UIFont.systemFont(ofSize: 16)
+                font = UIFont.systemFont(ofSize: 16)
             case .subtitle:
                 textColor = .darkGray
                 font = UIFont.systemFont(ofSize: 12)

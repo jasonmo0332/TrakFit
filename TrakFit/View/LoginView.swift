@@ -16,6 +16,7 @@ class LoginView : UIView {
     var signInButton = CustomButton()
     var createAccountButton = CustomButton()
     var companyTitleLabel = CustomLabel()
+    var forgotPasswordButton = CustomButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +27,7 @@ class LoginView : UIView {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
         companyTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(usernameField) // must initialize all components onto the view
         usernameField.type = .email
         
@@ -42,6 +43,9 @@ class LoginView : UIView {
         addSubview(companyTitleLabel)
         companyTitleLabel.text = "TrakFit"
         companyTitleLabel.textAlignment = .center
+        
+        addSubview(forgotPasswordButton)
+        forgotPasswordButton.setTitle("Forgot Password?", for: .normal)
         
         setupConstraints()
     }
@@ -84,6 +88,13 @@ class LoginView : UIView {
             createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 60),
             createAccountButton.widthAnchor.constraint(equalToConstant: 200),
             createAccountButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        NSLayoutConstraint.activate([
+            forgotPasswordButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            forgotPasswordButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 200),
+            forgotPasswordButton.widthAnchor.constraint(equalToConstant: 200),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
     }

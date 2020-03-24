@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     
     
     let profileView = ProfileView()
+    let goalViewController = GoalViewController()
     
     var profileCells: [ProfileSettings] {
         return profileView.tableView.profileSettings
@@ -87,8 +88,21 @@ extension ProfileViewController: UITableViewDelegate {
         }
         
         if cell.cellIdentifier == "goal" {
-            
+            //modal push
+            goalViewController.modalPresentationStyle = .fullScreen
+            goalViewController.transitioningDelegate = self
+            present(goalViewController, animated: true, completion: nil)
         }
     }
     
+}
+
+extension ProfileViewController:  UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self as? UIViewControllerAnimatedTransitioning
+    }
+
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self as? UIViewControllerAnimatedTransitioning
+    }
 }

@@ -24,11 +24,7 @@ class AddWeightViewController: UIViewController {
     lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
     //Delegate variable
     weak var addWeightViewControllerDelegate: AddWeightViewControllerDelegate?
-    
-    
-    
-    
-   
+
 
     
     override func loadView() {
@@ -45,9 +41,6 @@ class AddWeightViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func datePickerDidChanged(_ sender: Any) {
-        
-    }
     @objc func saveButtonDidPressed(_ sender: Any) {
         if let weightText = addWeightView.weightTextfield.text {
             if let input = Double(weightText) {
