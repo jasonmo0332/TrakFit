@@ -24,6 +24,7 @@ class AddWeightView : UIView {
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(datePicker)
         datePicker.datePickerMode = .date
+        datePicker.maximumDate = Date() //only allows user to set todays date as max
         addSubview(saveButton)
         saveButton.setTitle("Save", for: .normal)
         addSubview(cancelButton)

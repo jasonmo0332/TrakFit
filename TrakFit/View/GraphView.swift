@@ -25,7 +25,7 @@ class GraphView : UIView {
         addSubview(graphViewChart)
         
         
-        updateButton.setTitle("Update", for: .normal)
+       
         
         addWeightButton.setTitle("Add Weight", for: .normal)
         
@@ -34,18 +34,13 @@ class GraphView : UIView {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            addWeightButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
+            addWeightButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             addWeightButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
             addWeightButton.widthAnchor.constraint(equalToConstant: 120),
             addWeightButton.heightAnchor.constraint(equalToConstant: 30)
         ])
         
-        NSLayoutConstraint.activate([
-            updateButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-            updateButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
-            updateButton.widthAnchor.constraint(equalToConstant: 120),
-            updateButton.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        
         NSLayoutConstraint.activate([
             graphViewChart.centerXAnchor.constraint(equalTo: centerXAnchor),
             graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),

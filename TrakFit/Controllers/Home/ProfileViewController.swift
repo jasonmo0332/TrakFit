@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class ProfileViewController: UIViewController {
 
     let firebaseAuth = Auth.auth()
@@ -27,6 +28,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view.
 //        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
         profileView.tableView.dataSource = self
