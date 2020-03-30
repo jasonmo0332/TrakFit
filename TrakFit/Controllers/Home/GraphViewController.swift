@@ -17,22 +17,18 @@ class GraphViewController: UIViewController {
     let firebasePath : String = "myWeight"
     var inputWeightEntries : [WeightEntry] = []
     var inputGoalWeightEntries: [GoalWeightEntry] = []
-    
-//    var goalDate = Date()
-   
-    
+    var inputGoalWeightGraphEntries: [GoalWeightGraph] = []
     //delegate
     weak var axisFormatDelegate: IAxisValueFormatter?
     //import variables
     let user = Auth.auth().currentUser
     let ref = Database.database().reference()
     let realm = try! Realm()
-//    lazy var weightEntriesRealm: Results<WeightEntry> = {self.realm.objects(WeightEntry.self)}()
     
     //Variables for Realm
     var weightEntriesRealm = try! Realm().objects(WeightEntry.self)
     var goalEntriesRealm = try! Realm().objects(GoalWeightEntry.self)
-    
+    var goalWeightGraphEntriesRealm = try! Realm().objects(GoalWeightGraph.self)
     //View Variable
     let graphView = GraphView()
     let addWeightViewController = AddWeightViewController()
@@ -79,17 +75,16 @@ class GraphViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        setupNotifications()
-        readFromRealmDatabase()
-        
         //Delegate
         axisFormatDelegate = self
         addWeightViewController.addWeightViewControllerDelegate = self
-        
+
         // Do any additional setup after loading the view.
+        setupNotifications()
+        readFromRealmDatabase()
         syncToFirebase()
         //Button actions
+        
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
     }
     
@@ -122,13 +117,14 @@ class GraphViewController: UIViewController {
 
             inputWeightEntries.append(weightEntries)
         }
-        
-        
 
-        
         //Only singular value
         for goalWeightEntries in goalEntriesRealm {
             inputGoalWeightEntries.append(goalWeightEntries)
+        }
+        
+        for goalWeightGraphEntries in goalWeightGraphEntriesRealm {
+            inputGoalWeightGraphEntries.append(goalWeightGraphEntries)
         }
         
         self.updateGraph()
@@ -136,9 +132,14 @@ class GraphViewController: UIViewController {
     }
     
     func updateGraph() {
+        
+        /*
+         weightline for user input
+         */
         var lineChartEntryWeight = [ChartDataEntry]()
         
-        inputWeightEntries.sort {$0.date < $1.date} //sort based on date
+        let data = LineChartData()
+        inputWeightEntries.sort{$0.date < $1.date} //sort based on date
         
         for i in 0..<inputWeightEntries.count {
             let value = ChartDataEntry(x: inputWeightEntries[i].dateNumberValue, y: inputWeightEntries[i].weight)
@@ -147,11 +148,28 @@ class GraphViewController: UIViewController {
         
         let weightLine = LineChartDataSet(entries: lineChartEntryWeight, label: "Weight")
         weightLine.colors = [NSUIColor.blue]
-        let data = LineChartData(dataSet: weightLine)
         
-        graphView.graphViewChart.data = data
-        graphView.graphViewChart.chartDescription?.text = "My Weight"
         
+        data.addDataSet(weightLine)
+    
+         /*
+         Draw Goal graph here
+         
+         */
+        var lineChartGoalWeight = [ChartDataEntry]()
+        
+        inputGoalWeightEntries.sort {$0.goalDate < $1.goalDate}
+        
+       
+        for i in 0..<inputGoalWeightGraphEntries.count {
+            //fix
+            let value = ChartDataEntry(x: inputGoalWeightGraphEntries[i].goalDateNumberValue, y:inputGoalWeightGraphEntries[i].goalWeight)
+            lineChartGoalWeight.append(value)
+        }
+        let goalLine = LineChartDataSet(entries: lineChartGoalWeight, label: "Goal")
+        goalLine.colors = [NSUIColor.green]
+        
+        data.addDataSet(goalLine)
         //Setting up xAxis
         let xAxis = graphView.graphViewChart.xAxis // format
         xAxis.drawGridLinesEnabled = false
@@ -159,14 +177,12 @@ class GraphViewController: UIViewController {
         xAxis.labelPosition = .bottom
         xAxis.valueFormatter = axisFormatDelegate
         xAxis.axisMaxLabels = 5
-        xAxis.setLabelCount(inputWeightEntries.count, force: true)
+        xAxis.setLabelCount(5, force: true)
         
         
-        /*
-         
-         Draw Goal graph here
-         
-         */
+        graphView.graphViewChart.chartDescription?.text = "My Weight"
+        graphView.graphViewChart.animate(xAxisDuration: 1.0)
+        graphView.graphViewChart.data = data
     }
     
     func syncToFirebase() { //Synchronize the data from realmbase into firebase
@@ -181,6 +197,8 @@ class GraphViewController: UIViewController {
         
         self.ref.child("users").child(userId!).child(firebasePath).setValue(["date": inputDates, "weight" : inputWeights])
     }
+    
+    
 
     /*
     // MARK: - Navigation

@@ -13,6 +13,8 @@ class ProfileTableViewCell: UITableViewCell {
     var subtitle = CustomLabel()
     var vStack = UIStackView()
     
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         title.translatesAutoresizingMaskIntoConstraints = false

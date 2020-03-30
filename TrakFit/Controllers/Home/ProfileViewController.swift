@@ -35,6 +35,7 @@ class ProfileViewController: UIViewController {
         profileView.tableView.dataSource = self
         profileView.tableView.rowHeight = 80
         profileView.tableView.delegate = self
+        profileView.tableView.isScrollEnabled = false
     }
     
     @objc func logoutButtonDidPressed(_ sender: Any) {

@@ -20,6 +20,7 @@ class TableView: UITableView {
 
 //        self.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
         self.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableFooterView = UIView()
     }
     
     required init?(coder: NSCoder) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D11AFBD2431E1DE0041BDFD /* GoalWeightGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */; };
 		0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */; };
 		0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */; };
 		0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightGraph.swift; sourceTree = "<group>"; };
 		0D2F167A23EAD8A200F3F5D7 /* TrakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				0D8908A624182BB3004A5E0A /* UserProperties.swift */,
 				0D3C074F241EEB21003A1C75 /* ProfileSettings.swift */,
 				0D3C0751241EF406003A1C75 /* ProfileSettingsFactory.swift */,
+				0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				0D8908A5241826E2004A5E0A /* ProfileViewController.swift in Sources */,
 				0D8908A3241630A7004A5E0A /* WeightEntry.swift in Sources */,
 				0DBFDB9523EB8B1800B51A36 /* CreateAccountViewController.swift in Sources */,
+				0D11AFBD2431E1DE0041BDFD /* GoalWeightGraph.swift in Sources */,
 				0D3C073B2419CE88003A1C75 /* AddWeightView.swift in Sources */,
 				0D3C074C241EE3B3003A1C75 /* TableView.swift in Sources */,
 				0DFBB4F62424724500427BBE /* GoalWeightEntry.swift in Sources */,

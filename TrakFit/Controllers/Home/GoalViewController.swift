@@ -15,6 +15,7 @@ class GoalViewController: UIViewController {
     let goalView = GoalView()
     let goalFirebasePath = "myGoal"
     var goalInterval : Double = 0.0
+    var startDate: Double = 0.0
     var goalDate : Double = 0.0
     var goalWeight : Double = 0.0
     var goalStartingWeight: Double = 0.0
@@ -34,24 +35,79 @@ class GoalViewController: UIViewController {
     }
     
     @objc func submitGoalButtonDidPressed(_ sender: Any) {
+        let deletePrevious = realm.objects(GoalWeightGraph.self) // delete previous realm data for next
         
         if let goalIntervalValue = goalView.goalIntervalTextField.text, let goalWeightValue = goalView.goalTextField.text, let goalStartingWeightValue = goalView.goalStartingWeightTextField.text {
             if let goalIntervalDouble = Double(goalIntervalValue), let goalWeightDouble = Double(goalWeightValue), let goalStartingWeightDouble = Double(goalStartingWeightValue) {
                 let goalEntry = GoalWeightEntry()
                 goalEntry.interval = goalIntervalDouble
                 goalEntry.goalWeight = goalWeightDouble
-                goalEntry.dateNumberValue = convertDateToTimeIntervalDouble(date: goalView.goalDatePicker.date)
+                goalEntry.goalDateNumberValue = convertDateToTimeIntervalDouble(date: goalView.goalDatePicker.date)
                 goalEntry.goalDate = goalView.goalDatePicker.date
                 goalEntry.startingWeight = goalStartingWeightDouble
+                goalEntry.goalStartingDate = goalView.startingGoalDatePicker.date
+                goalEntry.goalStartingDateNumberValue = convertDateToTimeIntervalDouble(date: goalView.startingGoalDatePicker.date)
                 //Writes to realm
+                
+                
+                
+                let goalWeightGraphValue = calculateGoalNodes(myGoals: goalEntry)
+                
                 try! realm.write() {
+                    realm.delete(deletePrevious)
                     realm.add(goalEntry, update: .modified)
+                    realm.add(goalWeightGraphValue)
                 }
                 
                 syncToFirebase(goalWeightEntry: goalEntry)
                 presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
+        
+    }
+    
+    func calculateGoalNodes(myGoals : GoalWeightEntry) -> [GoalWeightGraph]{
+        
+        
+        var goalWeightGraphValues : [GoalWeightGraph] = []
+        //if starting weight minus the goal weight is >= 0 then they want to
+        //150 starting to get to 160 >= 0, so false
+        
+        let isWeightLossOrGain = myGoals.startingWeight - myGoals.goalWeight >= 0
+        //initial date
+        
+        let initialGoalWeightAndDate = GoalWeightGraph()
+        initialGoalWeightAndDate.goalDate = myGoals.goalStartingDate
+        initialGoalWeightAndDate.goalDateNumberValue = myGoals.goalDateNumberValue
+        initialGoalWeightAndDate.goalWeight = myGoals.goalWeight
+        
+        goalWeightGraphValues.append(initialGoalWeightAndDate)
+        
+        var initialWeight = myGoals.startingWeight
+        var initialStartingDate = myGoals.goalStartingDate
+        
+        while initialStartingDate <= myGoals.goalDate {
+            let sequentialGoalWeightAndDate = GoalWeightGraph()
+            if let tempGoalDate = Calendar.current.date(byAdding: .weekOfMonth, value: 1, to: initialStartingDate) {
+                sequentialGoalWeightAndDate.goalDate = tempGoalDate
+                sequentialGoalWeightAndDate.goalDateNumberValue = convertDateToTimeIntervalDouble(date: tempGoalDate)
+                initialStartingDate = tempGoalDate
+            }
+            //want weight loss
+            if !isWeightLossOrGain {
+                sequentialGoalWeightAndDate.goalWeight = initialWeight + myGoals.interval
+                goalWeightGraphValues.append(sequentialGoalWeightAndDate)
+                initialWeight += myGoals.interval
+            }
+            //want weight gain
+            else {
+                sequentialGoalWeightAndDate.goalWeight = initialWeight - myGoals.interval
+                goalWeightGraphValues.append(sequentialGoalWeightAndDate)
+                initialWeight -= myGoals.interval
+            }
+        }
+        
+        return goalWeightGraphValues
         
     }
     
@@ -70,7 +126,7 @@ class GoalViewController: UIViewController {
     
     func syncToFirebase(goalWeightEntry: GoalWeightEntry) {
         let userId = Auth.auth().currentUser?.uid
-        self.ref.child("users").child(userId!).child(goalFirebasePath).setValue(["goalDate": goalWeightEntry.dateNumberValue, "goalWeight" : goalWeightEntry.goalWeight, "goalInterval" : goalWeightEntry.interval, "goalStartingWeight" : goalWeightEntry.startingWeight])
+        self.ref.child("users").child(userId!).child(goalFirebasePath).setValue(["goalDate": goalWeightEntry.goalDateNumberValue, "goalWeight" : goalWeightEntry.goalWeight, "goalInterval" : goalWeightEntry.interval, "goalStartingWeight" : goalWeightEntry.startingWeight])
     }
     
     
@@ -81,6 +137,7 @@ class GoalViewController: UIViewController {
                 goalView.goalStartingWeightTextField.text = String(goalWeight.startingWeight)
                 goalView.goalTextField.text = String(goalWeight.goalWeight)
                 goalView.goalDatePicker.date = goalWeight.goalDate
+                goalView.startingGoalDatePicker.date = goalWeight.goalStartingDate
             }
         }
     }
