@@ -14,6 +14,7 @@ struct ProfileSettings {
     let subtitle: String
     let cellIdentifier: String
     let userEmail = Auth.auth().currentUser?.email
+    
     init(title: String, subtitle: String, cellIdentifier: String ) {
         self.title = title
         self.subtitle = subtitle

@@ -13,25 +13,26 @@ class CreateAccountView : UIView {
     var passwordField = CustomTextField()
     var confirmPasswordField = CustomTextField()
     var signupButton = CustomButton()
-       
+    let signupButtonImage = UIImage(named: "SignUpButton") as UIImage?
+    
     override init(frame: CGRect) {
        super.init(frame: frame)
        backgroundColor = .white
        
        emailField.translatesAutoresizingMaskIntoConstraints = false //So it does not auto resize
        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        confirmPasswordField.translatesAutoresizingMaskIntoConstraints = false
+       confirmPasswordField.translatesAutoresizingMaskIntoConstraints = false
        signupButton.translatesAutoresizingMaskIntoConstraints = false
        
        addSubview(emailField) // must initialize all components onto the view
        emailField.type = .email
        
        addSubview(passwordField)
-        passwordField.type = .password
-        addSubview(confirmPasswordField)
-        confirmPasswordField.type = .confirmPassword
+       passwordField.type = .password
+       addSubview(confirmPasswordField)
+       confirmPasswordField.type = .confirmPassword
        addSubview(signupButton)
-       signupButton.setTitle("Sign Up", for: .normal)
+       signupButton.setImage(signupButtonImage, for: .normal)
        
        setupConstraints()
    }
@@ -63,9 +64,9 @@ class CreateAccountView : UIView {
        
        NSLayoutConstraint.activate([
            signupButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-           signupButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 60),
-           signupButton.widthAnchor.constraint(equalToConstant: 200),
-           signupButton.heightAnchor.constraint(equalToConstant: 30)
+           signupButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 70),
+           signupButton.widthAnchor.constraint(equalToConstant: 120),
+           signupButton.heightAnchor.constraint(equalToConstant: 40)
        ])
        
    }

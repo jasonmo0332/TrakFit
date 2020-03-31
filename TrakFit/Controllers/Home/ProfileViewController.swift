@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController {
         profileView.tableView.rowHeight = 80
         profileView.tableView.delegate = self
         profileView.tableView.isScrollEnabled = false
+//        profileView.tableView.backgroundColor = UIColor(red:172.0, green:252.0, blue:217.0, alpha: 1)
     }
     
     @objc func logoutButtonDidPressed(_ sender: Any) {
@@ -77,6 +78,10 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = profileCells[indexPath.row]
+        
+        if cell.cellIdentifier == "logo" {
+            
+        }
         
         if cell.cellIdentifier == "logout" {
             print("Pressed here")

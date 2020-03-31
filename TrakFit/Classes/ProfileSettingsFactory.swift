@@ -11,16 +11,17 @@ class ProfileSettingsFactory {
     static func generateProfileSettings() -> [ProfileSettings] {
         var profileCells : [ProfileSettings] = []
         
+        
+        
         if let userEmail = Auth.auth().currentUser?.email {
             let userInfo = ProfileSettings(title: "User", subtitle: userEmail, cellIdentifier: "user")
             profileCells.append(userInfo)
         }
-        //try to set the image here
-        let profileLogo = ProfileSettings(title: "Logo", subtitle: "", cellIdentifier: "logo")
         
         let goalInfo = ProfileSettings(title: "Goal", subtitle: "Enter your goal Preferences", cellIdentifier: "goal")
         let settingsInfo = ProfileSettings(title: "Settings", subtitle: "Account, Notifications", cellIdentifier: "settings")
         let logoutInfo = ProfileSettings(title: "Logout", subtitle: "Logout of your current session", cellIdentifier: "logout")
+        
         profileCells.append(goalInfo)
         profileCells.append(settingsInfo)
         profileCells.append(logoutInfo)

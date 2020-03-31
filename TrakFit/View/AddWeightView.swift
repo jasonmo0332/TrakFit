@@ -13,6 +13,8 @@ class AddWeightView : UIView {
     var weightTextfield = CustomTextField()
     var weightLabel = CustomLabel()
     var cancelButton = CustomButton()
+    let cancelButtonImage = UIImage(named: "CancelButton") as UIImage?
+    let saveButtonImage = UIImage(named: "SaveButton") as UIImage?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,10 +27,12 @@ class AddWeightView : UIView {
         addSubview(datePicker)
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date() //only allows user to set todays date as max
+        
+        
         addSubview(saveButton)
-        saveButton.setTitle("Save", for: .normal)
+        saveButton.setImage(saveButtonImage, for: .normal)
         addSubview(cancelButton)
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setImage(cancelButtonImage, for: .normal)
         addSubview(weightTextfield)
         weightTextfield.keyboardType = UIKeyboardType.decimalPad
         addSubview(weightLabel)
@@ -53,8 +57,15 @@ class AddWeightView : UIView {
         NSLayoutConstraint.activate([
             saveButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -60),
             saveButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
-            saveButton.widthAnchor.constraint(equalToConstant: 150),
-            saveButton.heightAnchor.constraint(equalToConstant: 30)
+            saveButton.widthAnchor.constraint(equalToConstant: 100),
+            saveButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60),
+            cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
+            cancelButton.widthAnchor.constraint(equalToConstant: 100),
+            cancelButton.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
@@ -70,12 +81,7 @@ class AddWeightView : UIView {
             weightLabel.widthAnchor.constraint(equalToConstant: 120),
             weightLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
-        NSLayoutConstraint.activate([
-            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 60),
-            cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
-            cancelButton.widthAnchor.constraint(equalToConstant: 150),
-            cancelButton.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        
     }
     
 }

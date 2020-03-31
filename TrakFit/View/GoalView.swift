@@ -22,6 +22,9 @@ class GoalView : UIView {
     var goalStartingWeightLabel = CustomLabel()
     var goalDatePicker = UIDatePicker()
     var startingGoalDatePicker = UIDatePicker()
+    let saveGoalButtonImage = UIImage(named: "SaveButton") as UIImage?
+    let cancelButtonImage = UIImage(named: "CancelButton") as UIImage?
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,8 +69,8 @@ class GoalView : UIView {
         goalStartingWeightTextField.placeholder = "130"
         goalStartingWeightTextField.keyboardType = UIKeyboardType.decimalPad
         
-        submitGoalButton.setTitle("Submit", for: .normal)
-        cancelButton.setTitle("Cancel", for: .normal)
+        submitGoalButton.setImage(saveGoalButtonImage, for: .normal)
+        cancelButton.setImage(cancelButtonImage, for: .normal)
         
         
         addSubview(submitGoalButton)
@@ -111,7 +114,7 @@ class GoalView : UIView {
         ])
         
         NSLayoutConstraint.activate([
-         goalStartingWeightTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
+            goalStartingWeightTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
             goalStartingWeightTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -120),
             goalStartingWeightTextField.widthAnchor.constraint(equalToConstant: 150),
             goalStartingWeightTextField.heightAnchor.constraint(equalToConstant: 30)
@@ -132,7 +135,7 @@ class GoalView : UIView {
            goalTextLabel.heightAnchor.constraint(equalToConstant: 30)
        ])
        NSLayoutConstraint.activate([
-            goalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
+           goalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
            goalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 170),
            goalTextField.widthAnchor.constraint(equalToConstant: 150),
            goalTextField.heightAnchor.constraint(equalToConstant: 30)
@@ -146,7 +149,7 @@ class GoalView : UIView {
        ])
        
        NSLayoutConstraint.activate([
-        goalIntervalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
+           goalIntervalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
            goalIntervalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
            goalIntervalTextField.widthAnchor.constraint(equalToConstant: 150),
            goalIntervalTextField.heightAnchor.constraint(equalToConstant: 30)
@@ -155,17 +158,17 @@ class GoalView : UIView {
         
        
         NSLayoutConstraint.activate([
-            submitGoalButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 100),
+           submitGoalButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
            submitGoalButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 300),
-           submitGoalButton.widthAnchor.constraint(equalToConstant: 150),
-           submitGoalButton.heightAnchor.constraint(equalToConstant: 30)
+           submitGoalButton.widthAnchor.constraint(equalToConstant: 100),
+           submitGoalButton.heightAnchor.constraint(equalToConstant: 40)
        ])
         
        NSLayoutConstraint.activate([
-            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -100),
+            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
            cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 300),
-           cancelButton.widthAnchor.constraint(equalToConstant: 150),
-           cancelButton.heightAnchor.constraint(equalToConstant: 30)
+           cancelButton.widthAnchor.constraint(equalToConstant: 100),
+           cancelButton.heightAnchor.constraint(equalToConstant: 40)
        ])
     }
 }

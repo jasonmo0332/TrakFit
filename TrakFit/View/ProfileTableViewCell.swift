@@ -20,10 +20,10 @@ class ProfileTableViewCell: UITableViewCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         subtitle.translatesAutoresizingMaskIntoConstraints = false
         vStack.translatesAutoresizingMaskIntoConstraints = false
+
         addSubview(vStack)
         vStack.addArrangedSubview(title)
         vStack.addArrangedSubview(subtitle)
-        vStack.backgroundColor = .green
         title.textAlignment = .left
         subtitle.textAlignment = .left
         title.type = .title

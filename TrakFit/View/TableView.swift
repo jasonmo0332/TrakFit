@@ -14,7 +14,7 @@ import Firebase
 
 class TableView: UITableView {
     let profileSettings : [ProfileSettings] = ProfileSettingsFactory.generateProfileSettings()
-    
+    let logoImage = UIImage(named: "TrakFitProfile") as UIImage?
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
 

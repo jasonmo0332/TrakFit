@@ -13,21 +13,20 @@ class GraphView : UIView {
     var addWeightButton = CustomButton()
     var updateButton = CustomButton()
     var graphViewChart = LineChartView()
-    
+    let addWeightButtonImage = UIImage(named: "AddWeightButton") as UIImage?
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         addWeightButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.translatesAutoresizingMaskIntoConstraints = false
         graphViewChart.translatesAutoresizingMaskIntoConstraints = false
+        
+        addWeightButton.setImage(addWeightButtonImage, for: .normal)
         addSubview(addWeightButton)
         addSubview(updateButton)
         addSubview(graphViewChart)
         
         
-       
-        
-        addWeightButton.setTitle("Add Weight", for: .normal)
         
         setupConstraints()
     }
@@ -36,8 +35,8 @@ class GraphView : UIView {
         NSLayoutConstraint.activate([
             addWeightButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             addWeightButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
-            addWeightButton.widthAnchor.constraint(equalToConstant: 120),
-            addWeightButton.heightAnchor.constraint(equalToConstant: 30)
+            addWeightButton.widthAnchor.constraint(equalToConstant: 90),
+            addWeightButton.heightAnchor.constraint(equalToConstant: 90)
         ])
         
         
@@ -45,7 +44,7 @@ class GraphView : UIView {
             graphViewChart.centerXAnchor.constraint(equalTo: centerXAnchor),
             graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
             graphViewChart.widthAnchor.constraint(equalToConstant: 380),
-            graphViewChart.heightAnchor.constraint(equalToConstant: 500)
+            graphViewChart.heightAnchor.constraint(equalToConstant: 600)
             
         
         ])

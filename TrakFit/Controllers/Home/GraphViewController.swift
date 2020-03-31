@@ -183,6 +183,7 @@ class GraphViewController: UIViewController {
         graphView.graphViewChart.chartDescription?.text = "My Weight"
         graphView.graphViewChart.animate(xAxisDuration: 1.0)
         graphView.graphViewChart.data = data
+        graphView.graphViewChart.noDataText = "Press the '+' to add your weight!"
     }
     
     func syncToFirebase() { //Synchronize the data from realmbase into firebase
