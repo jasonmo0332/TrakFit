@@ -13,13 +13,16 @@ class WeightEntry : Object {
     @objc dynamic var date: Date = Date()
     @objc dynamic var weight: Double = 0.0
     @objc dynamic var dateNumberValue: Double = 0.0
+    @objc dynamic var dateNumberValueId : String = ""
 //    init(date: Date, weight: Double, dateNumberValue: Double) {
 //        self.date = date
 //        self.weight = weight
 //        self.dateNumberValue = dateNumberValue
 //    }
     
-    
+    override static func primaryKey() -> String? {
+        return "dateNumberValueId"
+    }
     
     
 }

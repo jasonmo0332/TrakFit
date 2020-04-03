@@ -52,12 +52,14 @@ class AddWeightViewController: UIViewController {
                 entry.date = addWeightView.datePicker.date
                 entry.weight = inputDouble
                 entry.dateNumberValue = dateDouble
+                entry.dateNumberValueId = String(dateDouble)
                 
                 
                 
                 //Writes to realm
                 try! realm.write() {
-                    realm.add(entry)
+                    
+                    realm.add(entry, update: .modified)
                 }
                 //sets weightEntriesRealm to be what is avilable in realm
                 weightEntriesRealm = realm.objects(WeightEntry.self)

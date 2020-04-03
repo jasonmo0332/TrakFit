@@ -82,10 +82,13 @@ class GraphViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupNotifications()
         readFromRealmDatabase()
-        syncToFirebase()
         //Button actions
         
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        readFromRealmDatabase()
     }
     
     func convertDoubleToDate(doubleDate: Double) -> Date{
@@ -181,7 +184,6 @@ class GraphViewController: UIViewController {
         
         
         graphView.graphViewChart.chartDescription?.text = "My Weight"
-        graphView.graphViewChart.animate(xAxisDuration: 1.0)
         graphView.graphViewChart.data = data
         graphView.graphViewChart.noDataText = "Press the '+' to add your weight!"
     }
