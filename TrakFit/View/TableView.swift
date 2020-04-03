@@ -15,12 +15,17 @@ import Firebase
 class TableView: UITableView {
     let profileSettings : [ProfileSettings] = ProfileSettingsFactory.generateProfileSettings()
     let logoImage = UIImage(named: "TrakFitProfile") as UIImage?
+    let logoImageview = UIImageView()
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
 
 //        self.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
         self.register(ProfileTableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableFooterView = UIView()
+        //set this to transparent so the profile image can show
+        backgroundColor = UIColor.white.withAlphaComponent(0.0)
+        
+        
     }
     
     required init?(coder: NSCoder) {

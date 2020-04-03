@@ -16,7 +16,7 @@ class GraphView : UIView {
     let addWeightButtonImage = UIImage(named: "AddWeightButton") as UIImage?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
         addWeightButton.translatesAutoresizingMaskIntoConstraints = false
         updateButton.translatesAutoresizingMaskIntoConstraints = false
         graphViewChart.translatesAutoresizingMaskIntoConstraints = false

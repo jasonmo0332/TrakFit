@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D11AFBD2431E1DE0041BDFD /* GoalWeightGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */; };
+		0D11AFBF2436CD310041BDFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D11AFBE2436CD310041BDFD /* Assets.xcassets */; };
 		0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */; };
 		0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */; };
 		0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */; };
-		0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */; };
 		0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F168B23EAD8A400F3F5D7 /* LaunchScreen.storyboard */; };
 		0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */; };
 		0D3C073B2419CE88003A1C75 /* AddWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3C073A2419CE88003A1C75 /* AddWeightView.swift */; };
@@ -45,11 +45,11 @@
 
 /* Begin PBXFileReference section */
 		0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightGraph.swift; sourceTree = "<group>"; };
+		0D11AFBE2436CD310041BDFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F167A23EAD8A200F3F5D7 /* TrakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0D2F168723EAD8A200F3F5D7 /* TrakFit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrakFit.xcdatamodel; sourceTree = "<group>"; };
-		0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D2F168C23EAD8A400F3F5D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D2F168E23EAD8A400F3F5D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D2F169423EAD9AA00F3F5D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				0DFBB4EF2422178100427BBE /* GoalView.swift */,
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
 				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
-				0D2F168923EAD8A400F3F5D7 /* Assets.xcassets */,
+				0D11AFBE2436CD310041BDFD /* Assets.xcassets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D2F168D23EAD8A400F3F5D7 /* LaunchScreen.storyboard in Resources */,
+				0D11AFBF2436CD310041BDFD /* Assets.xcassets in Resources */,
 				0D2F169523EAD9AA00F3F5D7 /* GoogleService-Info.plist in Resources */,
-				0D2F168A23EAD8A400F3F5D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

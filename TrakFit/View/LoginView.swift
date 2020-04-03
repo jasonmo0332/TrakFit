@@ -24,7 +24,7 @@ class LoginView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor(red: 172, green: 252, blue: 217, alpha: 1)
+        backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
         //backgroundColor = .red
 //        .init(red: 172.0, green: 252.0, blue: 217.0, alpha: 1.0)
         

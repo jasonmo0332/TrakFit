@@ -17,7 +17,7 @@ class CreateAccountView : UIView {
     
     override init(frame: CGRect) {
        super.init(frame: frame)
-       backgroundColor = .white
+       backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
        
        emailField.translatesAutoresizingMaskIntoConstraints = false //So it does not auto resize
        passwordField.translatesAutoresizingMaskIntoConstraints = false

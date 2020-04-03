@@ -167,7 +167,7 @@ class GraphViewController: UIViewController {
             lineChartGoalWeight.append(value)
         }
         let goalLine = LineChartDataSet(entries: lineChartGoalWeight, label: "Goal")
-        goalLine.colors = [NSUIColor.green]
+        goalLine.colors = [NSUIColor.orange]
         
         data.addDataSet(goalLine)
         //Setting up xAxis

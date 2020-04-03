@@ -17,20 +17,24 @@ class ProfileView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
         safeArea = self.layoutMarginsGuide
         
+        
+        
+        //set up the table view header with the profile image
         tableView.translatesAutoresizingMaskIntoConstraints = false
-//        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         logoImageView.image = logoImage
+        tableView.tableHeaderView = logoImageView
         
         addSubview(logoImageView)
         addSubview(tableView)
         
         
         setupConstraints()
-        tableView.tableHeaderView = logoImageView
+        
     }
     
     

@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        profileView.logoutButton.addTarget(self, action: #selector(logoutButtonDidPressed(_:)), for: .touchUpInside)
         profileView.tableView.dataSource = self
-        profileView.tableView.rowHeight = 80
+        profileView.tableView.rowHeight = 81
         profileView.tableView.delegate = self
         profileView.tableView.isScrollEnabled = false
 //        profileView.tableView.backgroundColor = UIColor(red:172.0, green:252.0, blue:217.0, alpha: 1)
