@@ -78,8 +78,8 @@ class GoalViewController: UIViewController {
         
         let initialGoalWeightAndDate = GoalWeightGraph()
         initialGoalWeightAndDate.goalDate = myGoals.goalStartingDate
-        initialGoalWeightAndDate.goalDateNumberValue = myGoals.goalDateNumberValue
-        initialGoalWeightAndDate.goalWeight = myGoals.goalWeight
+        initialGoalWeightAndDate.goalDateNumberValue = myGoals.goalStartingDateNumberValue
+        initialGoalWeightAndDate.goalWeight = myGoals.startingWeight
         
         goalWeightGraphValues.append(initialGoalWeightAndDate)
         

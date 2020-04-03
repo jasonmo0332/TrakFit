@@ -18,7 +18,7 @@ class AddWeightView : UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         weightTextfield.translatesAutoresizingMaskIntoConstraints = false

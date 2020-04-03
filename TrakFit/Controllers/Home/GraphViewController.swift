@@ -163,7 +163,7 @@ class GraphViewController: UIViewController {
        
         for i in 0..<inputGoalWeightGraphEntries.count {
             //fix
-            let value = ChartDataEntry(x: inputGoalWeightGraphEntries[i].goalDateNumberValue, y:inputGoalWeightGraphEntries[i].goalWeight)
+            let value = ChartDataEntry(x: inputGoalWeightGraphEntries[i].goalDateNumberValue, y: inputGoalWeightGraphEntries[i].goalWeight)
             lineChartGoalWeight.append(value)
         }
         let goalLine = LineChartDataSet(entries: lineChartGoalWeight, label: "Goal")
