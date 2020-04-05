@@ -21,31 +21,16 @@ class CreateAccountViewController: UIViewController {
         //usernameField.delegate = self
         // Do any additional setup after loading the view.
         createAccountView.signupButton.addTarget(self, action: #selector(signupButtonDidPressed(_:)), for: .touchUpInside)
+        createAccountView.confirmPasswordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+        createAccountView.passwordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+        createAccountView.emailField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
     }
     
     @objc func signupButtonDidPressed(_ sender: UIButton) {
-//        if passwordField.text != confirmPasswordField.text && passwordField.text != "" passwordField.text {
-//            createAlert(title: "Password Error", message: "The passwords must match")
-//            return
-//        }
-        guard let passwordFieldText = createAccountView.passwordField.text,
-            passwordFieldText == createAccountView.confirmPasswordField.text,
-            passwordFieldText.count > 6 else {
-            createAlert(title: "Password Error", message: "The passwords must match")
-            return
+
+        if (isPasswordValid() && isPasswordMatched()) {
+            shouldCreateUser()
         }
-        guard let emailFieldText = createAccountView.emailField.text else {
-            createAlert(title: "Email Error", message: "The passwords must match")
-            return
-        }
-        Auth.auth().createUser(withEmail: emailFieldText, password: passwordFieldText) { authResult, error in
-            guard let user = authResult?.user, error == nil else {
-                self.createAlert(title: "Username Error", message: "\(error!.localizedDescription)")
-                return
-            }
-            self.dismiss(animated: true, completion: nil)
-        }
-        
         
     }
     
@@ -57,6 +42,47 @@ class CreateAccountViewController: UIViewController {
     }
     
     
+    
+    func isPasswordValid() -> Bool {
+        guard let passwordFieldText = createAccountView.passwordField.text, let confirmPasswordFieldText = createAccountView.confirmPasswordField.text, passwordFieldText.count > 6 else {
+            createAccountView.passwordErrorLabel.text = "Passwords must be at least 6 characters"
+            createAccountView.usernameErrorLabel.text = ""
+            createAccountView.confirmPasswordErrorLabel.text = ""
+            return false
+        }
+
+        return true
+        
+    }
+    
+    func isPasswordMatched() -> Bool {
+        guard let passwordFieldText = createAccountView.passwordField.text, let confirmPasswordFieldText = createAccountView.confirmPasswordField.text, passwordFieldText == confirmPasswordFieldText else {
+            createAccountView.confirmPasswordErrorLabel.text = "Passwords must match"
+            createAccountView.usernameErrorLabel.text = ""
+            createAccountView.passwordErrorLabel.text = ""
+            return false
+        }
+        
+        
+        return true
+    }
+    
+    func shouldCreateUser() {
+        guard let emailFieldText = createAccountView.emailField.text, let passwordFieldText = createAccountView.passwordField.text else {
+            return
+        }
+        Auth.auth().createUser(withEmail: emailFieldText, password: passwordFieldText) { authResult, error in
+            guard let user = authResult?.user, error == nil else {
+                self.createAccountView.usernameErrorLabel.text = error?.localizedDescription
+                self.createAccountView.passwordErrorLabel.text = ""
+                self.createAccountView.confirmPasswordErrorLabel.text = ""
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -69,5 +95,15 @@ class CreateAccountViewController: UIViewController {
     */
 }
 extension CreateAccountViewController : UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+//        if textField.text?.count ?? 0 >= 6 && textField.accessibilityLabel == "password" {
+//            createAccountView.passwordErrorLabel.text = "Password must be at least 6 characters"
+//        }
+//        else {
+//            createAccountView.passwordErrorLabel.text = ""
+//        }
+    }
+    
+    
     
 }

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D11AFBD2431E1DE0041BDFD /* GoalWeightGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */; };
 		0D11AFBF2436CD310041BDFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D11AFBE2436CD310041BDFD /* Assets.xcassets */; };
+		0D11AFC824380CEE0041BDFD /* Pods_TrakFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; };
+		0D11AFC924380CEE0041BDFD /* Pods_TrakFit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0D11AFD62439C0C40041BDFD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11AFD52439C0C40041BDFD /* SettingView.swift */; };
+		0D11AFD82439C0F40041BDFD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11AFD72439C0F40041BDFD /* SettingViewController.swift */; };
 		0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */; };
 		0D2F168023EAD8A200F3F5D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */; };
 		0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D2F168623EAD8A200F3F5D7 /* TrakFit.xcdatamodeld */; };
@@ -40,12 +44,31 @@
 		0DFBB4F224234F5400427BBE /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBB4F124234F5400427BBE /* ForgotPasswordView.swift */; };
 		0DFBB4F424234F6C00427BBE /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBB4F324234F6C00427BBE /* ForgotPasswordViewController.swift */; };
 		0DFBB4F62424724500427BBE /* GoalWeightEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFBB4F52424724400427BBE /* GoalWeightEntry.swift */; };
-		D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0D11AFC324380CAE0041BDFD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0D11AFC924380CEE0041BDFD /* Pods_TrakFit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D11AFBC2431E1DE0041BDFD /* GoalWeightGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalWeightGraph.swift; sourceTree = "<group>"; };
 		0D11AFBE2436CD310041BDFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D11AFC024380CAD0041BDFD /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D11AFCA24380D4A0041BDFD /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D11AFCB24380D4A0041BDFD /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D11AFCC24380D4A0041BDFD /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D11AFD52439C0C40041BDFD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		0D11AFD72439C0F40041BDFD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0D2F167A23EAD8A200F3F5D7 /* TrakFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrakFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D57B38493EF140823ADEBF7E /* Pods_TrakFit.framework in Frameworks */,
+				0D11AFC824380CEE0041BDFD /* Pods_TrakFit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +122,10 @@
 		03394F723B402A40DB59C541 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D11AFCA24380D4A0041BDFD /* FirebaseAuth.framework */,
+				0D11AFCB24380D4A0041BDFD /* FirebaseCore.framework */,
+				0D11AFCC24380D4A0041BDFD /* FirebaseDatabase.framework */,
+				0D11AFC024380CAD0041BDFD /* Charts.framework */,
 				5C311A8E9883B4F662231DEA /* Pods_TrakFit.framework */,
 			);
 			name = Frameworks;
@@ -190,6 +217,7 @@
 				0D8908A4241826E2004A5E0A /* ProfileViewController.swift */,
 				0D890871240F042D004A5E0A /* GraphViewController.swift */,
 				0D3C0753242216A6003A1C75 /* GoalViewController.swift */,
+				0D11AFD72439C0F40041BDFD /* SettingViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -218,6 +246,7 @@
 				0DFBB4EF2422178100427BBE /* GoalView.swift */,
 				0D2F167D23EAD8A200F3F5D7 /* AppDelegate.swift */,
 				0D2F167F23EAD8A200F3F5D7 /* SceneDelegate.swift */,
+				0D11AFD52439C0C40041BDFD /* SettingView.swift */,
 				0D11AFBE2436CD310041BDFD /* Assets.xcassets */,
 			);
 			path = View;
@@ -248,6 +277,7 @@
 				0D2F167723EAD8A200F3F5D7 /* Frameworks */,
 				0D2F167823EAD8A200F3F5D7 /* Resources */,
 				4DA9BFBB867A842E2BB9BB0B /* [CP] Embed Pods Frameworks */,
+				0D11AFC324380CAE0041BDFD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,6 +385,7 @@
 				0D3C0754242216A6003A1C75 /* GoalViewController.swift in Sources */,
 				0D3C07412419D16A003A1C75 /* CustomLabel.swift in Sources */,
 				0D3C0750241EEB21003A1C75 /* ProfileSettings.swift in Sources */,
+				0D11AFD62439C0C40041BDFD /* SettingView.swift in Sources */,
 				0D3C074E241EE66B003A1C75 /* ProfileTableViewCell.swift in Sources */,
 				0DBFDB9B23F95C2200B51A36 /* AddWeightViewController.swift in Sources */,
 				0D890872240F042D004A5E0A /* GraphViewController.swift in Sources */,
@@ -369,6 +400,7 @@
 				0D3C074C241EE3B3003A1C75 /* TableView.swift in Sources */,
 				0DFBB4F62424724500427BBE /* GoalWeightEntry.swift in Sources */,
 				0D3C073D2419CE9A003A1C75 /* ProfileView.swift in Sources */,
+				0D11AFD82439C0F40041BDFD /* SettingViewController.swift in Sources */,
 				0D82B3052419B4B5005E2235 /* LoginView.swift in Sources */,
 				0D2F168823EAD8A200F3F5D7 /* TrakFit.xcdatamodeld in Sources */,
 				0D2F167E23EAD8A200F3F5D7 /* AppDelegate.swift in Sources */,
@@ -527,7 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com-example.TrakFit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -546,7 +578,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com-example.TrakFit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

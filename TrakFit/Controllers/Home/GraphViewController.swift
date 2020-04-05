@@ -81,7 +81,7 @@ class GraphViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNotifications()
-        readFromRealmDatabase()
+//        readFromRealmDatabase()
         //Button actions
         
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)

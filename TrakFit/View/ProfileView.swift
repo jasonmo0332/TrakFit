@@ -28,7 +28,6 @@ class ProfileView : UIView {
         
         logoImageView.image = logoImage
         tableView.tableHeaderView = logoImageView
-        
         addSubview(logoImageView)
         addSubview(tableView)
         

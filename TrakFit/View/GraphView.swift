@@ -34,7 +34,7 @@ class GraphView : UIView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             addWeightButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            addWeightButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
+            addWeightButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 270),
             addWeightButton.widthAnchor.constraint(equalToConstant: 90),
             addWeightButton.heightAnchor.constraint(equalToConstant: 90)
         ])
@@ -42,7 +42,7 @@ class GraphView : UIView {
         
         NSLayoutConstraint.activate([
             graphViewChart.centerXAnchor.constraint(equalTo: centerXAnchor),
-            graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
+            graphViewChart.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -70),
             graphViewChart.widthAnchor.constraint(equalToConstant: 380),
             graphViewChart.heightAnchor.constraint(equalToConstant: 600)
             

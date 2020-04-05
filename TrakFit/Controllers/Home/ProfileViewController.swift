@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     
     let profileView = ProfileView()
     let goalViewController = GoalViewController()
-    
+    let settingViewController = SettingViewController()
     var profileCells: [ProfileSettings] {
         return profileView.tableView.profileSettings
     }
@@ -66,7 +66,7 @@ extension ProfileViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileTableViewCell
         cell.title.text = profileCells[indexPath.row].title
         cell.subtitle.text = profileCells[indexPath.row].subtitle
-
+        cell.selectionStyle = .none
         
         return cell
     }
@@ -94,6 +94,10 @@ extension ProfileViewController: UITableViewDelegate {
         }
         if cell.cellIdentifier == "settings" {
             
+             settingViewController.modalPresentationStyle = .fullScreen
+             settingViewController.transitioningDelegate = self
+             present(settingViewController, animated: true, completion: nil)
+             
         }
         
         if cell.cellIdentifier == "goal" {

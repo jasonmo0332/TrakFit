@@ -18,6 +18,8 @@ class LoginView : UIView {
     var companyTitleLabel = CustomLabel()
     var forgotPasswordButton = CustomButton()
     
+    
+    
     let signinButtonImage = UIImage(named: "SignInButton") as UIImage?
     let createAccountButtonImage = UIImage(named: "CreateAccountButton") as UIImage?
     let forgotPasswordButtonImage = UIImage(named: "ForgotPasswordButton") as UIImage?
@@ -54,6 +56,9 @@ class LoginView : UIView {
         addSubview(forgotPasswordButton)
         forgotPasswordButton.setImage(forgotPasswordButtonImage, for: .normal)
         
+        
+        
+        
         setupConstraints()
     }
     
@@ -78,21 +83,21 @@ class LoginView : UIView {
         ])
         NSLayoutConstraint.activate([
             passwordField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
+            passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
             passwordField.widthAnchor.constraint(equalToConstant: 200),
             passwordField.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
             signInButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            signInButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 10),
+            signInButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 30),
             signInButton.widthAnchor.constraint(equalToConstant: 120),
             signInButton.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
             createAccountButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 60),
+            createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
             createAccountButton.widthAnchor.constraint(equalToConstant: 180),
             createAccountButton.heightAnchor.constraint(equalToConstant: 40)
         ])
