@@ -242,7 +242,6 @@ extension GraphViewController: IAxisValueFormatter {
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = "MM-dd-yy"
         
-        print(dateFormatter.string(from: Date(timeIntervalSince1970: value)))
         return dateFormatter.string(from: Date(timeIntervalSince1970: value))
     }
 }

@@ -15,15 +15,14 @@ class LoginView : UIView {
     var passwordField = CustomTextField()
     var signInButton = CustomButton()
     var createAccountButton = CustomButton()
-    var companyTitleLabel = CustomLabel()
     var forgotPasswordButton = CustomButton()
-    
+    var companyImageView = UIImageView()
     
     
     let signinButtonImage = UIImage(named: "SignInButton") as UIImage?
     let createAccountButtonImage = UIImage(named: "CreateAccountButton") as UIImage?
     let forgotPasswordButtonImage = UIImage(named: "ForgotPasswordButton") as UIImage?
-    
+    let loginScreenIconImage = UIImage(named: "TrakFitLoginIcon") as UIImage?
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 172/255, green: 252/255, blue: 217/255, alpha: 1)
@@ -35,7 +34,7 @@ class LoginView : UIView {
         passwordField.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
-        companyTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        companyImageView.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         addSubview(usernameField) // must initialize all components onto the view
         usernameField.type = .email
@@ -48,10 +47,9 @@ class LoginView : UIView {
         
         addSubview(createAccountButton)
         createAccountButton.setImage(createAccountButtonImage, for: .normal)
+        addSubview(companyImageView)
+        companyImageView.image = loginScreenIconImage
         
-        addSubview(companyTitleLabel)
-        companyTitleLabel.text = "TrakFit"
-        companyTitleLabel.textAlignment = .center
         
         addSubview(forgotPasswordButton)
         forgotPasswordButton.setImage(forgotPasswordButtonImage, for: .normal)
@@ -69,42 +67,42 @@ class LoginView : UIView {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            companyTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            companyTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -200),
-            companyTitleLabel.widthAnchor.constraint(equalToConstant: 250),
-            companyTitleLabel.heightAnchor.constraint(equalToConstant: 50)
+            companyImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            companyImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -200),
+            companyImageView.widthAnchor.constraint(equalToConstant: 360),
+            companyImageView.heightAnchor.constraint(equalToConstant: 180)
         ])
         
         NSLayoutConstraint.activate([
             usernameField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            usernameField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
+            usernameField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
             usernameField.widthAnchor.constraint(equalToConstant: 200),
             usernameField.heightAnchor.constraint(equalToConstant: 30)
         ])
         NSLayoutConstraint.activate([
             passwordField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+            passwordField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20),
             passwordField.widthAnchor.constraint(equalToConstant: 200),
             passwordField.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
             signInButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            signInButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 30),
+            signInButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
             signInButton.widthAnchor.constraint(equalToConstant: 120),
             signInButton.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
             createAccountButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
+            createAccountButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 140),
             createAccountButton.widthAnchor.constraint(equalToConstant: 180),
             createAccountButton.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
             forgotPasswordButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            forgotPasswordButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 200),
+            forgotPasswordButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 300),
             forgotPasswordButton.widthAnchor.constraint(equalToConstant: 180),
             forgotPasswordButton.heightAnchor.constraint(equalToConstant: 40)
         ])
