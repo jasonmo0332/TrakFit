@@ -13,6 +13,7 @@ class AddWeightView : UIView {
     var weightTextfield = CustomTextField()
     var weightLabel = CustomLabel()
     var cancelButton = CustomButton()
+    var selectDateLabel = CustomLabel()
     let cancelButtonImage = UIImage(named: "CancelButton") as UIImage?
     let saveButtonImage = UIImage(named: "SaveButton") as UIImage?
     
@@ -24,11 +25,13 @@ class AddWeightView : UIView {
         weightTextfield.translatesAutoresizingMaskIntoConstraints = false
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        selectDateLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(datePicker)
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date() //only allows user to set todays date as max
         
-        
+        addSubview(selectDateLabel)
+        selectDateLabel.text = "Select a date to add"
         addSubview(saveButton)
         saveButton.setImage(saveButtonImage, for: .normal)
         addSubview(cancelButton)
@@ -37,6 +40,7 @@ class AddWeightView : UIView {
         weightTextfield.keyboardType = UIKeyboardType.decimalPad
         addSubview(weightLabel)
         weightLabel.text = "Enter Weight:"
+        weightLabel.textAlignment = .center
         
         setupConstraints()
     }
@@ -48,9 +52,17 @@ class AddWeightView : UIView {
     }
     
     func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+            selectDateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            selectDateLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -250),
+            selectDateLabel.widthAnchor.constraint(equalToConstant: 250),
+            selectDateLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
         NSLayoutConstraint.activate([
             datePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
-            datePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -200),
+            datePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -150),
             datePicker.widthAnchor.constraint(equalToConstant: 250),
             datePicker.heightAnchor.constraint(equalToConstant: 250)
         ])

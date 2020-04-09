@@ -41,7 +41,7 @@ class LoginView : UIView {
         
         addSubview(passwordField)
         passwordField.type = .password
-        
+        passwordField.isSecureTextEntry = true
         addSubview(signInButton)
         signInButton.setImage(signinButtonImage, for: .normal)
         
@@ -75,7 +75,7 @@ class LoginView : UIView {
         
         NSLayoutConstraint.activate([
             usernameField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            usernameField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+            usernameField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
             usernameField.widthAnchor.constraint(equalToConstant: 200),
             usernameField.heightAnchor.constraint(equalToConstant: 30)
         ])

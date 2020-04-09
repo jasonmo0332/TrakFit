@@ -12,6 +12,8 @@ import Firebase
 import RealmSwift
 import UserNotifications
 
+
+
 class GraphViewController: UIViewController {
 
     let firebasePath : String = "myWeight"
@@ -27,12 +29,13 @@ class GraphViewController: UIViewController {
     
     //Variables for Realm
     var weightEntriesRealm = try! Realm().objects(WeightEntry.self)
-    var goalEntriesRealm = try! Realm().objects(GoalWeightEntry.self)
+    
     var goalWeightGraphEntriesRealm = try! Realm().objects(GoalWeightGraph.self)
     //View Variable
     let graphView = GraphView()
     let addWeightViewController = AddWeightViewController()
-    
+    let goalViewController = GoalViewController()
+
     override func loadView() {
         view = graphView
     }
@@ -74,22 +77,22 @@ class GraphViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        graphView.graphViewChart.noDataText = "Press the '+' to add your weight!"
         //Delegate
         axisFormatDelegate = self
         addWeightViewController.addWeightViewControllerDelegate = self
-
+        goalViewController.goalViewControllerDelegate = self
         // Do any additional setup after loading the view.
         setupNotifications()
-//        readFromRealmDatabase()
+        readFromRealmDatabase()
         //Button actions
         
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        readFromRealmDatabase()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        
+//    }
     
     func convertDoubleToDate(doubleDate: Double) -> Date{
         // convert Int to Double
@@ -116,22 +119,22 @@ class GraphViewController: UIViewController {
         //goal
         
         //Add the goal values into realm
-        for weightEntries in weightEntriesRealm {
-
-            inputWeightEntries.append(weightEntries)
-        }
-
-        //Only singular value
-        for goalWeightEntries in goalEntriesRealm {
-            inputGoalWeightEntries.append(goalWeightEntries)
-        }
         
         for goalWeightGraphEntries in goalWeightGraphEntriesRealm {
             inputGoalWeightGraphEntries.append(goalWeightGraphEntries)
         }
         
+        
+        for weightEntries in weightEntriesRealm {
+
+            inputWeightEntries.append(weightEntries)
+        }
+
+
+        
+        
         self.updateGraph()
-        self.syncToFirebase()
+        //self.syncToFirebase()
     }
     
     func updateGraph() {
@@ -161,11 +164,9 @@ class GraphViewController: UIViewController {
          */
         var lineChartGoalWeight = [ChartDataEntry]()
         
-        inputGoalWeightEntries.sort {$0.goalDate < $1.goalDate}
         
        
         for i in 0..<inputGoalWeightGraphEntries.count {
-            //fix
             let value = ChartDataEntry(x: inputGoalWeightGraphEntries[i].goalDateNumberValue, y: inputGoalWeightGraphEntries[i].goalWeight)
             lineChartGoalWeight.append(value)
         }
@@ -184,8 +185,11 @@ class GraphViewController: UIViewController {
         
         
         graphView.graphViewChart.chartDescription?.text = "My Weight"
-        graphView.graphViewChart.data = data
-        graphView.graphViewChart.noDataText = "Press the '+' to add your weight!"
+        if weightLine.count > 0  {
+            graphView.graphViewChart.data = data
+        }
+        
+        
     }
     
     func syncToFirebase() { //Synchronize the data from realmbase into firebase
@@ -231,6 +235,12 @@ extension GraphViewController:  UIViewControllerTransitioningDelegate {
 extension GraphViewController: AddWeightViewControllerDelegate {
     func updateOnSave() {
 //        addWeightViewController.addWeightViewControllerDelegate = self
+        readFromRealmDatabase()
+    }
+}
+
+extension GraphViewController: GoalViewControllerDelegate {
+    func updateOnGoalSave() {
         readFromRealmDatabase()
     }
 }

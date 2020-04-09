@@ -194,7 +194,6 @@
 			children = (
 				0D89089F2415CC66004A5E0A /* Home */,
 				0D89089E2415CC62004A5E0A /* Main */,
-				0D82B2F624199195005E2235 /* RootViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,6 +204,7 @@
 				0DBFDB9423EB8B1800B51A36 /* CreateAccountViewController.swift */,
 				0DBFDB9223EB8B0800B51A36 /* LoginViewController.swift */,
 				0DFBB4F324234F6C00427BBE /* ForgotPasswordViewController.swift */,
+				0D82B2F624199195005E2235 /* RootViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";

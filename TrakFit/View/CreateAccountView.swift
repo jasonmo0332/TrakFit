@@ -30,19 +30,16 @@ class CreateAccountView : UIView {
        usernameErrorLabel.translatesAutoresizingMaskIntoConstraints = false
        passwordErrorLabel.translatesAutoresizingMaskIntoConstraints = false
        confirmPasswordErrorLabel.translatesAutoresizingMaskIntoConstraints = false
-        
        addSubview(emailField) // must initialize all components onto the view
        emailField.type = .email
-        emailField.accessibilityIdentifier = "email"
        addSubview(passwordField)
        passwordField.type = .password
-        passwordField.accessibilityIdentifier = "password"
+//       passwordField.isSecureTextEntry = true
        addSubview(confirmPasswordField)
        confirmPasswordField.type = .confirmPassword
-        confirmPasswordField.accessibilityIdentifier = "confirmPassword"
+//       confirmPasswordField.isSecureTextEntry = true
        addSubview(signupButton)
        signupButton.setImage(signupButtonImage, for: .normal)
-       
        addSubview(usernameErrorLabel)
         usernameErrorLabel.text = ""
        addSubview(passwordErrorLabel)

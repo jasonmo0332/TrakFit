@@ -8,30 +8,43 @@
 
 import UIKit
 import Firebase
+
 class CreateAccountViewController: UIViewController {
 
     let createAccountView = CreateAccountView()
     
     override func loadView() {
         view = CreateAccountView()
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //usernameField.delegate = self
         // Do any additional setup after loading the view.
         createAccountView.signupButton.addTarget(self, action: #selector(signupButtonDidPressed(_:)), for: .touchUpInside)
-        createAccountView.confirmPasswordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
-        createAccountView.passwordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
-        createAccountView.emailField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+        self.title = "Account Creation"
+//        createAccountView.confirmPasswordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+//        createAccountView.passwordField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+//        createAccountView.emailField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+//
+//
+//        createAccountView.confirmPasswordField.delegate = self
+//        createAccountView.passwordField.delegate = self
+//        createAccountView.emailField.delegate = self
+        
     }
     
-    @objc func signupButtonDidPressed(_ sender: UIButton) {
-
-        if (isPasswordValid() && isPasswordMatched()) {
-            shouldCreateUser()
-        }
-        
+//    @objc func signupButtonDidPressed(_ sender: Any) {
+//        print("before if")
+//        if (isPasswordValid() && isPasswordMatched()) {
+//            shouldCreateUser()
+//        }
+//        print("after if")
+//
+//    }
+    @objc func signupButtonDidPressed(_ sender: Any) {
+        print("Clicked here")
     }
     
     func createAlert(title: String, message: String) {
@@ -44,6 +57,7 @@ class CreateAccountViewController: UIViewController {
     
     
     func isPasswordValid() -> Bool {
+        print("in is password Valid")
         guard let passwordFieldText = createAccountView.passwordField.text, let confirmPasswordFieldText = createAccountView.confirmPasswordField.text, passwordFieldText.count > 6 else {
             createAccountView.passwordErrorLabel.text = "Passwords must be at least 6 characters"
             createAccountView.usernameErrorLabel.text = ""
@@ -84,26 +98,24 @@ class CreateAccountViewController: UIViewController {
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
-extension CreateAccountViewController : UITextFieldDelegate {
-    func textFieldDidEndEditing(_ textField: UITextField) {
-//        if textField.text?.count ?? 0 >= 6 && textField.accessibilityLabel == "password" {
-//            createAccountView.passwordErrorLabel.text = "Password must be at least 6 characters"
-//        }
-//        else {
-//            createAccountView.passwordErrorLabel.text = ""
-//        }
-    }
-    
-    
-    
-}
+//extension CreateAccountViewController : UITextFieldDelegate {
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+////        if textField.text!.count < 6 {
+////            createAccountView.passwordErrorLabel.text = "Password must be at least 6 characters"
+////        }
+////        else {
+////            createAccountView.passwordErrorLabel.text = ""
+////        }
+////
+////        if textField.text != createAccountView.confirmPasswordField.text {
+////             createAccountView.confirmPasswordErrorLabel.text = "Passwords must match"
+////        }
+////        else {
+////            createAccountView.confirmPasswordErrorLabel.text = ""
+////        }
+//    }
+//
+//
+//
+//}

@@ -42,7 +42,6 @@ class LoginViewController: UIViewController {
     
     @objc func createAccountButtonDidPressed(_ sender: Any) {
         let createAccountViewController = CreateAccountViewController()
-        print("we here")
         navigationController?.pushViewController(createAccountViewController, animated: true)
         
     }

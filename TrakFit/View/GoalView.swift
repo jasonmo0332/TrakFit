@@ -20,10 +20,10 @@ class GoalView : UIView {
     var goalIntervalLabel = CustomLabel()
     var goalStartingWeightTextField = CustomTextField()
     var goalStartingWeightLabel = CustomLabel()
-    var goalDatePicker = UIDatePicker()
+//    var goalDatePicker = UIDatePicker()
     var startingGoalDatePicker = UIDatePicker()
     var startDateLabel = CustomLabel()
-    var goalDateLabel = CustomLabel()
+//    var goalDateLabel = CustomLabel()
     
     let saveGoalButtonImage = UIImage(named: "SaveButton") as UIImage?
     let cancelButtonImage = UIImage(named: "CancelButton") as UIImage?
@@ -39,18 +39,18 @@ class GoalView : UIView {
         goalTextLabel.translatesAutoresizingMaskIntoConstraints = false
         goalIntervalTextField.translatesAutoresizingMaskIntoConstraints = false
         goalIntervalLabel.translatesAutoresizingMaskIntoConstraints = false
-        goalDatePicker.translatesAutoresizingMaskIntoConstraints = false
+//        goalDatePicker.translatesAutoresizingMaskIntoConstraints = false
         goalStartingWeightLabel.translatesAutoresizingMaskIntoConstraints = false
         goalStartingWeightTextField.translatesAutoresizingMaskIntoConstraints = false
         startingGoalDatePicker.translatesAutoresizingMaskIntoConstraints = false
         startDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        goalDateLabel.translatesAutoresizingMaskIntoConstraints = false
+//        goalDateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         startingGoalDatePicker.datePickerMode = .date
         
         
-        goalDatePicker.datePickerMode = .date
-        goalDatePicker.minimumDate = Date() // must be at least today or more
+//        goalDatePicker.datePickerMode = .date
+//        goalDatePicker.minimumDate = Date() // must be at least today or more
         
         
         trackGoalsLabel.text = "Set your goals"
@@ -62,7 +62,7 @@ class GoalView : UIView {
         goalTextField.placeholder = "e.g. 150"
         
         
-        goalIntervalLabel.text = "Weekly Loss interval:"
+        goalIntervalLabel.text = "Weekly weight change:"
         goalIntervalLabel.textAlignment = .center
         goalIntervalTextField.placeholder = "e.g. .5, 1"
         goalIntervalTextField.keyboardType = UIKeyboardType.decimalPad
@@ -75,14 +75,14 @@ class GoalView : UIView {
         
         startDateLabel.text = "Select your starting date"
         startDateLabel.textAlignment = .center
-        goalDateLabel.text = "Select your goal date"
-        goalDateLabel.textAlignment = .center
+//        goalDateLabel.text = "Select your goal date"
+//        goalDateLabel.textAlignment = .center
         
         
         submitGoalButton.setImage(saveGoalButtonImage, for: .normal)
         cancelButton.setImage(cancelButtonImage, for: .normal)
         
-        addSubview(goalDateLabel)
+//        addSubview(goalDateLabel)
         addSubview(startDateLabel)
         addSubview(submitGoalButton)
         addSubview(cancelButton)
@@ -91,7 +91,7 @@ class GoalView : UIView {
         addSubview(goalTextLabel)
         addSubview(goalIntervalTextField)
         addSubview(goalIntervalLabel)
-        addSubview(goalDatePicker)
+//        addSubview(goalDatePicker)
         addSubview(startingGoalDatePicker)
         addSubview(goalStartingWeightTextField)
         addSubview(goalStartingWeightLabel)
@@ -126,33 +126,33 @@ class GoalView : UIView {
         
         NSLayoutConstraint.activate([
             goalStartingWeightLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-            goalStartingWeightLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
+            goalStartingWeightLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
             goalStartingWeightLabel.widthAnchor.constraint(equalToConstant: 200),
             goalStartingWeightLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
             goalStartingWeightTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
-            goalStartingWeightTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
+            goalStartingWeightTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
             goalStartingWeightTextField.widthAnchor.constraint(equalToConstant: 100),
             goalStartingWeightTextField.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         
         
-        NSLayoutConstraint.activate([
-            goalDateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            goalDateLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -50),
-            goalDateLabel.widthAnchor.constraint(equalToConstant: 200),
-            goalDateLabel.heightAnchor.constraint(equalToConstant: 30)
-        ])
-        
-        NSLayoutConstraint.activate([
-           goalDatePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
-           goalDatePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 50),
-           goalDatePicker.widthAnchor.constraint(equalToConstant: 250),
-           goalDatePicker.heightAnchor.constraint(equalToConstant: 200)
-        ])
+//        NSLayoutConstraint.activate([
+//            goalDateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            goalDateLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -40),
+//            goalDateLabel.widthAnchor.constraint(equalToConstant: 200),
+//            goalDateLabel.heightAnchor.constraint(equalToConstant: 30)
+//        ])
+//
+//        NSLayoutConstraint.activate([
+//           goalDatePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
+//           goalDatePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 60),
+//           goalDatePicker.widthAnchor.constraint(equalToConstant: 250),
+//           goalDatePicker.heightAnchor.constraint(equalToConstant: 200)
+//        ])
         
         
        NSLayoutConstraint.activate([
