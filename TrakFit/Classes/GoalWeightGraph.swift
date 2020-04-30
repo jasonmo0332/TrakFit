@@ -14,6 +14,8 @@ class GoalWeightGraph : Object {
     @objc dynamic var goalDate: Date = Date()
     @objc dynamic var goalWeight: Double = 0.0
     @objc dynamic var goalDateNumberValue: Double = 0.0
+    @objc dynamic var currentGoal : Bool = true
+    
     
 }
 

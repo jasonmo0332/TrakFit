@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     let profileView = ProfileView()
     let goalViewController = GoalViewController()
     let settingViewController = SettingViewController()
+    
     var profileCells: [ProfileSettings] {
         return profileView.tableView.profileSettings
     }
@@ -100,12 +101,12 @@ extension ProfileViewController: UITableViewDelegate {
              
         }
         
-        if cell.cellIdentifier == "goal" {
-            //modal push
-            goalViewController.modalPresentationStyle = .fullScreen
-            goalViewController.transitioningDelegate = self
-            present(goalViewController, animated: true, completion: nil)
-        }
+//        if cell.cellIdentifier == "goal" {
+//            //modal push
+//            goalViewController.modalPresentationStyle = .fullScreen
+//            goalViewController.transitioningDelegate = self
+//            present(goalViewController, animated: true, completion: nil)
+//        }
     }
     
 }

@@ -13,6 +13,7 @@ class ForgotPasswordView: UIView {
     var emailTextField = CustomTextField()
     var requestPasswordResetButton = CustomButton()
     var forgottenPasswordLabel = CustomLabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         emailTextField.translatesAutoresizingMaskIntoConstraints = false

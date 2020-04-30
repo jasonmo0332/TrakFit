@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         loginView.signInButton.addTarget(self, action: #selector(signInButtonDidPressed(_:)), for: .touchUpInside)
         loginView.createAccountButton.addTarget(self, action: #selector(createAccountButtonDidPressed(_:)), for: .touchUpInside)
+        loginView.forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonDidPressed(_:)), for: .touchUpInside)
     }
     
     @objc func signInButtonDidPressed(_ sender: Any) {

@@ -106,34 +106,34 @@ class GoalView : UIView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
            trackGoalsLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-           trackGoalsLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -350),
+           trackGoalsLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -310),
            trackGoalsLabel.widthAnchor.constraint(equalToConstant: 250),
            trackGoalsLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         NSLayoutConstraint.activate([
             startDateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            startDateLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -300),
+            startDateLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -260),
             startDateLabel.widthAnchor.constraint(equalToConstant: 250),
             startDateLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
             startingGoalDatePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
-            startingGoalDatePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -200),
+            startingGoalDatePicker.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -140),
             startingGoalDatePicker.widthAnchor.constraint(equalToConstant: 250),
             startingGoalDatePicker.heightAnchor.constraint(equalToConstant: 200)
         ])
         
         NSLayoutConstraint.activate([
             goalStartingWeightLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-            goalStartingWeightLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
+            goalStartingWeightLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             goalStartingWeightLabel.widthAnchor.constraint(equalToConstant: 200),
             goalStartingWeightLabel.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
             goalStartingWeightTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
-            goalStartingWeightTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -80),
+            goalStartingWeightTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
             goalStartingWeightTextField.widthAnchor.constraint(equalToConstant: 100),
             goalStartingWeightTextField.heightAnchor.constraint(equalToConstant: 30)
         ])
@@ -157,27 +157,27 @@ class GoalView : UIView {
         
        NSLayoutConstraint.activate([
            goalTextLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-           goalTextLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 200),
+           goalTextLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 40),
            goalTextLabel.widthAnchor.constraint(equalToConstant: 200),
            goalTextLabel.heightAnchor.constraint(equalToConstant: 30)
        ])
        NSLayoutConstraint.activate([
            goalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
-           goalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 200),
+           goalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 40),
            goalTextField.widthAnchor.constraint(equalToConstant: 100),
            goalTextField.heightAnchor.constraint(equalToConstant: 30)
        ])
        
        NSLayoutConstraint.activate([
            goalIntervalLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-           goalIntervalLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
+           goalIntervalLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
            goalIntervalLabel.widthAnchor.constraint(equalToConstant: 200),
            goalIntervalLabel.heightAnchor.constraint(equalToConstant: 30)
        ])
        
        NSLayoutConstraint.activate([
            goalIntervalTextField.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
-           goalIntervalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 250),
+           goalIntervalTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 80),
            goalIntervalTextField.widthAnchor.constraint(equalToConstant: 100),
            goalIntervalTextField.heightAnchor.constraint(equalToConstant: 30)
        ])
@@ -186,14 +186,14 @@ class GoalView : UIView {
        
         NSLayoutConstraint.activate([
            submitGoalButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
-           submitGoalButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 320),
+           submitGoalButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 160),
            submitGoalButton.widthAnchor.constraint(equalToConstant: 100),
            submitGoalButton.heightAnchor.constraint(equalToConstant: 40)
        ])
         
        NSLayoutConstraint.activate([
            cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
-           cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 320),
+           cancelButton.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 160),
            cancelButton.widthAnchor.constraint(equalToConstant: 100),
            cancelButton.heightAnchor.constraint(equalToConstant: 40)
        ])

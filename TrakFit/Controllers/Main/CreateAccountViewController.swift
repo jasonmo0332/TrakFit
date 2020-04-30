@@ -99,23 +99,4 @@ class CreateAccountViewController: UIViewController {
     }
 
 }
-//extension CreateAccountViewController : UITextFieldDelegate {
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-////        if textField.text!.count < 6 {
-////            createAccountView.passwordErrorLabel.text = "Password must be at least 6 characters"
-////        }
-////        else {
-////            createAccountView.passwordErrorLabel.text = ""
-////        }
-////
-////        if textField.text != createAccountView.confirmPasswordField.text {
-////             createAccountView.confirmPasswordErrorLabel.text = "Passwords must match"
-////        }
-////        else {
-////            createAccountView.confirmPasswordErrorLabel.text = ""
-////        }
-//    }
-//
-//
-//
-//}
+

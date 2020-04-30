@@ -30,15 +30,20 @@ class GraphViewController: UIViewController {
     //Variables for Realm
     var weightEntriesRealm = try! Realm().objects(WeightEntry.self)
     
-    var goalWeightGraphEntriesRealm = try! Realm().objects(GoalWeightGraph.self)
+//    var goalWeightGraphEntriesRealm : Results<GoalWeightGraph>? = nil
+    
+    var goalWeightGraphEntriesRealm = try! Realm().objects(GoalWeightGraph.self).filter("currentGoal == true")
     //View Variable
     let graphView = GraphView()
+    
+    
     let addWeightViewController = AddWeightViewController()
     let goalViewController = GoalViewController()
 
     override func loadView() {
         view = graphView
     }
+    
     
     func setupNotifications() {
         //asking for permission
@@ -75,24 +80,29 @@ class GraphViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         graphView.graphViewChart.noDataText = "Press the '+' to add your weight!"
         //Delegate
         axisFormatDelegate = self
         addWeightViewController.addWeightViewControllerDelegate = self
         goalViewController.goalViewControllerDelegate = self
+        
+        
         // Do any additional setup after loading the view.
         setupNotifications()
+        
+        
         readFromRealmDatabase()
         //Button actions
         
         graphView.addWeightButton.addTarget(self, action: #selector(addWeightButtonDidPressed(_:)), for: .touchUpInside)
+        graphView.changeGoalButton.addTarget(self, action: #selector(changeGoalButtonDidPressed(_:)), for: .touchUpInside)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-//    }
+
     
     func convertDoubleToDate(doubleDate: Double) -> Date{
         // convert Int to Double
@@ -104,6 +114,11 @@ class GraphViewController: UIViewController {
         return myNSDate
     }
     
+    @objc func changeGoalButtonDidPressed(_ sender: Any) {
+        goalViewController.modalPresentationStyle = .fullScreen
+        goalViewController.transitioningDelegate = self
+        present(goalViewController, animated: true, completion: nil)
+    }
     
     @objc func addWeightButtonDidPressed(_ sender: Any) {
 
@@ -114,12 +129,9 @@ class GraphViewController: UIViewController {
     }
     
     func readFromRealmDatabase() {
-        //input weight
-
-        //goal
-        
-        //Add the goal values into realm
-        
+//        guard let goalWeightGraphEntriesRealm2 = goalWeightGraphEntriesRealm else {
+//            return
+//        }
         for goalWeightGraphEntries in goalWeightGraphEntriesRealm {
             inputGoalWeightGraphEntries.append(goalWeightGraphEntries)
         }
@@ -129,12 +141,8 @@ class GraphViewController: UIViewController {
 
             inputWeightEntries.append(weightEntries)
         }
-
-
-        
-        
         self.updateGraph()
-        //self.syncToFirebase()
+        self.syncToFirebase()
     }
     
     func updateGraph() {
@@ -234,13 +242,15 @@ extension GraphViewController:  UIViewControllerTransitioningDelegate {
 //Delegate used to update the graph on submit from AddWeightViewController
 extension GraphViewController: AddWeightViewControllerDelegate {
     func updateOnSave() {
-//        addWeightViewController.addWeightViewControllerDelegate = self
+        print("Update on save")
         readFromRealmDatabase()
     }
 }
 
 extension GraphViewController: GoalViewControllerDelegate {
     func updateOnGoalSave() {
+        print("We here update on save")
+        
         readFromRealmDatabase()
     }
 }

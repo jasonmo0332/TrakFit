@@ -26,7 +26,7 @@ class GoalViewController: UIViewController {
     let realm = try! Realm()
     let ref = Database.database().reference()
 
-    var goalEntriesRealm = try! Realm().objects(GoalWeightEntry.self)
+    lazy var goalEntriesRealm = try! Realm().objects(GoalWeightEntry.self)
     
     weak var goalViewControllerDelegate: GoalViewControllerDelegate?
     
@@ -38,11 +38,13 @@ class GoalViewController: UIViewController {
         goalView.submitGoalButton.addTarget(self, action: #selector(submitGoalButtonDidPressed(_:)), for: .touchUpInside)
         goalView.cancelButton.addTarget(self, action: #selector(cancelButtonDidPressed(_:)), for: .touchUpInside)
         readFromRealmDatabase()
+
     }
     
     @objc func submitGoalButtonDidPressed(_ sender: Any) {
 
-        let deletePrevious = realm.objects(GoalWeightGraph.self)
+        
+        
         if let goalIntervalValue = goalView.goalIntervalTextField.text, let goalWeightValue = goalView.goalTextField.text, let goalStartingWeightValue = goalView.goalStartingWeightTextField.text {
             if let goalIntervalDouble = Double(goalIntervalValue), let goalWeightDouble = Double(goalWeightValue), let goalStartingWeightDouble = Double(goalStartingWeightValue) {
                 
@@ -59,16 +61,23 @@ class GoalViewController: UIViewController {
                 goalEntry.goalStartingDateNumberValue = convertDateToTimeIntervalDouble(date: goalView.startingGoalDatePicker.date)
                 //Writes to realm
                 
+                let changePrevious = realm.objects(GoalWeightGraph.self)
                 
                 
                 let goalWeightGraphValue = calculateGoalNodes(myGoals: goalEntry)
                 
                 try! realm.write() {
-                    realm.delete(deletePrevious)
+                    for n in changePrevious {
+                        n.currentGoal = false
+                    }
                     realm.add(goalEntry, update: .modified)
                     realm.add(goalWeightGraphValue)
+                    
                 }
+                
+                print("before update on goal delegate called")
                 goalViewControllerDelegate?.updateOnGoalSave()
+                print("after update on goal delegate called")
                 syncToFirebase(goalWeightEntry: goalEntry)
                 presentingViewController?.dismiss(animated: true, completion: nil)
             }
@@ -112,6 +121,7 @@ class GoalViewController: UIViewController {
                 initialWeight -= myGoals.interval
                 sequentialGoalWeightAndDate.goalWeight = initialWeight
                 goalWeightGraphValues.append(sequentialGoalWeightAndDate)
+                
             }
         }
         //want weight gain
@@ -167,23 +177,9 @@ class GoalViewController: UIViewController {
         }
     }
     
-//    func isWeightValid(startingWeight: Double, goalWeight: Double, startingDate: Date, goalDate: Date, interval: Double) -> Bool {
-//        let dateDelta = goalDate - startingDate
-//
-//        //if someone put they want to lose 1lbs in one week
-//
-//
-//
-//        return true
-//    }
+
     
     
-    func createAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message:
-            message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
-        self.present(alertController, animated: true, completion: nil)
-    }
     
 }
 

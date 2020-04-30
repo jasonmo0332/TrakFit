@@ -17,6 +17,8 @@ class ForgotPasswordViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Password Recovery"
+        forgotPasswordView.requestPasswordResetButton.addTarget(self, action: #selector(resetPasswordButtonDidPressed(_:)), for: .touchUpInside)
     }
     
     @objc func resetPasswordButtonDidPressed(_ sender: Any) {
